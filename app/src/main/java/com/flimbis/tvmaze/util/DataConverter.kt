@@ -30,7 +30,9 @@ fun convertToShowDataList(list: List<Shows>): List<ShowsData> {
 
 fun convertToEpisodesData(episodes: Episodes): EpisodeData {
     val episodedata: EpisodeData = EpisodeData(episodes.id, episodes.name, episodes.season, episodes.number,
-            episodes.airdate, episodes.airtime, episodes.runtime, episodes.image.medium, episodes.summary)
+            episodes.airdate, episodes.airtime, episodes.runtime,
+            episodes.image?.medium ?: "http://jw-studio.de/wp-content/themes/crowd/images/noimage_2.gif",
+            episodes.summary ?: "no summary")
 
     return episodedata
 }
