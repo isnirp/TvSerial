@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity(), ViewContract.View, ShowsAdapter.Compan
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        shows_grid.layoutManager = GridLayoutManager(this, 4)
+        shows_grid.layoutManager = GridLayoutManager(this, resources.getInteger(R.integer.rows))
 
         //dagger component
         DaggerShowsComponent.builder()
