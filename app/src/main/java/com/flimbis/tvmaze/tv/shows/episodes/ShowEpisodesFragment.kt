@@ -3,6 +3,8 @@ package com.flimbis.tvmaze.tv.shows.episodes
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -56,10 +58,15 @@ class ShowEpisodesFragment : Fragment(), ViewContract.View, EpisodeAdapter.Compa
     }
 
     override fun showEpisodes(episodes: List<EpisodeData>) {
-        episodes_list.layoutManager = LinearLayoutManager(context)
-        //set adapter & click listener
-        episodes_list.adapter = EpisodeAdapter(context, episodes).apply {
-            setClickListener(this@ShowEpisodesFragment)
+        episodes_list.apply {
+            layoutManager = LinearLayoutManager(context)
+            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL).apply {
+                setDrawable(ContextCompat.getDrawable(context, R.drawable.divider))
+            })
+            //set adapter & click listener
+            adapter = EpisodeAdapter(context, episodes).apply {
+                setClickListener(this@ShowEpisodesFragment)
+            }
         }
     }
 
