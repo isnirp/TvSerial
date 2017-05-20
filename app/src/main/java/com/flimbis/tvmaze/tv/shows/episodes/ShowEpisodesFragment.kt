@@ -2,12 +2,13 @@ package com.flimbis.tvmaze.tv.shows.episodes
 
 
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import android.widget.Toast
 import com.flimbis.tvmaze.R
 import com.flimbis.tvmaze.TvApplication
 import com.flimbis.tvmaze.adapter.EpisodeAdapter
@@ -70,7 +71,8 @@ class ShowEpisodesFragment : Fragment(), ViewContract.View, EpisodeAdapter.Click
     }
 
     override fun showEpisodeDetail(episode: EpisodeData) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val v = view ?: return
+        Toast.makeText(v.context, "comming soon", Toast.LENGTH_SHORT).show()
     }
 
     override fun itemClicked(episode: EpisodeData) {
