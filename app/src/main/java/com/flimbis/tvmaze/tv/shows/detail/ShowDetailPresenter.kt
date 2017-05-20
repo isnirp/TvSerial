@@ -13,13 +13,13 @@ import javax.inject.Inject
 class ShowDetailPresenter @Inject constructor(val view: ViewContract.View, val dataSource: TvMazeRepository) : ViewContract.Presenter {
 
     override fun loadShow(showid: Long) {
-        dataSource.getSelectedShowById(showid,object: ShowDataListener {
+        dataSource.getSelectedShowById(showid, object : ShowDataListener {
             override fun onSuccess(show: Shows) {
                 view.showDetail(convertToShowData(show))
             }
 
             override fun onError(msg: String?) {
-                Log.i("SHOWS_API_CALLBack", "" + msg)
+                Log.i("SHOWS_API_CALLBack", msg)
             }
         })
     }

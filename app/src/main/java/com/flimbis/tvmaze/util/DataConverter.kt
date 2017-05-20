@@ -16,29 +16,18 @@ import com.flimbis.tvmaze.model.ShowsData
     return showsdata
 }*/
 
-fun convertToShowData(shows: Shows): ShowsData {
-    val showsdata: ShowsData = ShowsData(shows.id, shows.name, shows.image.medium)
+fun convertToShowData(shows: Shows) = ShowsData(shows.id, shows.name, shows.image.medium)
 
-    return showsdata
+fun convertToShowDataList(list: List<Shows>) = list.mapIndexed { _, shows ->
+    convertToShowData(shows)
 }
 
-fun convertToShowDataList(list: List<Shows>): List<ShowsData> {
-    return list.mapIndexed { i, shows ->
-        convertToShowData(shows)
-    }
-}
+fun convertToEpisodesData(episodes: Episodes) = EpisodeData(
+        episodes.id, episodes.name, episodes.season, episodes.number,
+        episodes.airdate, episodes.airtime, episodes.runtime,
+        episodes.image?.medium ?: "http://jw-studio.de/wp-content/themes/crowd/images/noimage_2.gif",
+        episodes.summary ?: "no summary")
 
-fun convertToEpisodesData(episodes: Episodes): EpisodeData {
-    val episodedata: EpisodeData = EpisodeData(episodes.id, episodes.name, episodes.season, episodes.number,
-            episodes.airdate, episodes.airtime, episodes.runtime,
-            episodes.image?.medium ?: "http://jw-studio.de/wp-content/themes/crowd/images/noimage_2.gif",
-            episodes.summary ?: "no summary")
-
-    return episodedata
-}
-
-fun convertToEpisodeDataList(list: List<Episodes>): List<EpisodeData> {
-    return list.mapIndexed { i, episodes ->
-        convertToEpisodesData(episodes)
-    }
+fun convertToEpisodeDataList(list: List<Episodes>) = list.mapIndexed { _, episodes ->
+    convertToEpisodesData(episodes)
 }

@@ -19,7 +19,7 @@ class EpisodePresenter @Inject constructor(val view: ViewContract.View, val data
             }
 
             override fun onError(msg: String?) {
-                Log.i("EPISODE_API_CALLBack", "" + msg)
+                Log.i("EPISODE_API_CALLBack", msg)
             }
         })
     }
@@ -29,5 +29,6 @@ class EpisodePresenter @Inject constructor(val view: ViewContract.View, val data
     }
 
     override fun unbind() {
+        // no-op
     }
 }

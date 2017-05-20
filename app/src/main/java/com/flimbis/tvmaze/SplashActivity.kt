@@ -1,10 +1,9 @@
 package com.flimbis.tvmaze
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_splash.*
 import org.jetbrains.anko.startActivity
-import android.content.Intent
-import java.lang.Thread.sleep
 
 
 class SplashActivity : AppCompatActivity() {
@@ -12,23 +11,6 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-
-        val trd = Thread(Runnable {
-            try {
-                sleep(2500)
-            } catch (e: InterruptedException) {
-                e.printStackTrace()
-            } finally {
-                startActivity<MainActivity>()
-            }
-        })
-
-        trd.start()
-
-    }
-
-    override fun onStop() {
-        super.onStop()
-        finish()
+        splash_layout.postDelayed({startActivity<MainActivity>()}, 2500)
     }
 }
