@@ -4,6 +4,7 @@ import com.flimbis.tvmaze.di.module.EpisodeDetailModule
 import com.flimbis.tvmaze.di.module.EpisodesModule
 import com.flimbis.tvmaze.di.scope.CustomScope
 import com.flimbis.tvmaze.tv.episode.EpisodeActivity
+import com.flimbis.tvmaze.tv.episode.detail.EpisodeDetailActivity
 import dagger.Component
 
 /**
@@ -12,5 +13,5 @@ import dagger.Component
 @CustomScope
 @Component(modules = arrayOf(EpisodeDetailModule::class), dependencies = arrayOf(AppComponent::class))
 interface EpisodeDetailComponent {
-    fun inject(episodeActivity: EpisodeActivity)
+    fun inject(episodeDetailActivity: EpisodeDetailActivity)
 }

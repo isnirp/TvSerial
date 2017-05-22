@@ -1,4 +1,4 @@
-package com.flimbis.tvmaze.tv.shows.detail
+package com.flimbis.tvmaze.tv.shows
 
 import android.util.Log
 import com.flimbis.tvmaze.core.entity.Shows
@@ -8,18 +8,20 @@ import com.flimbis.tvmaze.util.convertToShowData
 import javax.inject.Inject
 
 /**
- * Created by Fifi on 5/19/2017.
+ * Created by Fifi on 5/20/2017.
  */
-class ShowDetailPresenter @Inject constructor(val view: ViewContract.View, val dataSource: TvMazeRepository) : ViewContract.Presenter {
+class TvShowPresenter @Inject constructor(val view: ViewContract.View, val dataSource: TvMazeRepository) : ViewContract.Presenter {
 
     override fun loadShow(showid: Long) {
         dataSource.getSelectedShowById(showid,object: ShowDataListener {
             override fun onSuccess(show: Shows) {
-                view.showDetail(convertToShowData(show))
+                view.showShowDetail(convertToShowData(show))
             }
 
             override fun onError(msg: String?) {
                 Log.i("SHOWS_API_CALLBack", "" + msg)
+                view.showMessage("Check network connection")
+
             }
         })
     }

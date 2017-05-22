@@ -1,19 +1,19 @@
 package com.flimbis.tvmaze.tv.shows
 
+import com.flimbis.tvmaze.model.ShowsData
+
 /**
  * Created by Fifi on 5/19/2017.
  */
 interface ViewContract {
     interface View {
-        fun showBanner(img: String)
+        fun showShowDetail(shows: ShowsData)
 
-        fun showFragment(type: String, showid: Long)
+        fun showMessage(message: String)
     }
 
     interface Presenter {
-        fun loadBanner(img: String)
-
-        fun replaceFragment(type: String)
+        fun loadShow(showid: Long)
 
         fun unbind()
     }

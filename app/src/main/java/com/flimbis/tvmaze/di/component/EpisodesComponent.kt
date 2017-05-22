@@ -3,7 +3,8 @@ package com.flimbis.tvmaze.di.component
 import com.flimbis.tvmaze.di.module.EpisodesModule
 import com.flimbis.tvmaze.di.module.ShowsModule
 import com.flimbis.tvmaze.di.scope.CustomScope
-import com.flimbis.tvmaze.tv.shows.episodes.ShowEpisodesFragment
+import com.flimbis.tvmaze.tv.episode.EpisodeActivity
+import com.flimbis.tvmaze.tv.episode.EpisodeActivity_MembersInjector
 import dagger.Component
 
 /**
@@ -12,5 +13,5 @@ import dagger.Component
 @CustomScope
 @Component(modules = arrayOf(EpisodesModule::class), dependencies = arrayOf(AppComponent::class))
 interface EpisodesComponent {
-    fun inject(episodes: ShowEpisodesFragment)
+    fun inject(episodes: EpisodeActivity)
 }

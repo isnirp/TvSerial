@@ -7,16 +7,17 @@ import com.flimbis.tvmaze.model.EpisodeData
  */
 interface ViewContract {
     interface View {
-        fun showEpisode(episodes: EpisodeData)
+        fun showEpisodes(episodes: List<EpisodeData>)
 
-        fun showShowDetails(showid: Long)
+        fun showEpisodeDetail(episode: EpisodeData)
 
+        fun showMessage(message: String)
     }
 
     interface Presenter {
-        fun loadEpisodes(showid: Long, seasonNum: String, number: String)
+        fun loadEpisodes(showid: Long)
 
-        fun navigateToShowDetail(showid: Long)
+        fun navigateToEpisodeDetail(episode: EpisodeData)
 
         fun unbind()
     }

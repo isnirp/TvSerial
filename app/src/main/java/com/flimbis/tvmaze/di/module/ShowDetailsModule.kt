@@ -1,7 +1,7 @@
 package com.flimbis.tvmaze.di.module
 
 import com.flimbis.tvmaze.di.scope.CustomScope
-import com.flimbis.tvmaze.tv.shows.detail.ViewContract
+import com.flimbis.tvmaze.tv.shows.ViewContract
 import dagger.Module
 import dagger.Provides
 

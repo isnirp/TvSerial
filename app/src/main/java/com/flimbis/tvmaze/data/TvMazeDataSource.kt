@@ -1,5 +1,6 @@
 package com.flimbis.tvmaze.data
 
+import android.util.Log
 import com.flimbis.tvmaze.core.entity.Episodes
 import com.flimbis.tvmaze.core.entity.Shows
 import com.flimbis.tvmaze.core.listeners.EpisodeDataListener
@@ -19,25 +20,33 @@ class TvMazeDataSource(val apiService: ApiService) : TvMazeRepository {
 
     override fun getShowsListByPage(queryPageNumber: String, listener: ShowsListener?) {
         val call = apiService.getAllShowsByPage(queryPageNumber)
-        call.enqueue(object: Callback<List<Shows>?> {
+        call.enqueue(object: Callback<List<Shows>> {
             override fun onFailure(call: Call<List<Shows>?>?, t: Throwable?) {
                 listener?.onError(t?.message)
             }
 
-            override fun onResponse(call: Call<List<Shows>?>?, response: Response<List<Shows>?>?) {
+            override fun onResponse(call: Call<List<Shows>?>?, response: Response<List<Shows>>) {
+                val lst: List<Shows> = response.body()
+                for(show: Shows in lst){
+                    Log.i("TAGG_SHOWS",""+ show)
+                }
                 listener?.onSuccess(response?.body())
             }
         })
     }
 
-    override fun getShowEpisodesList(showId: Long, listener: EpisodesListener?) {
+    override fun getShowEpisodesList(showId: Long, listener: EpisodesListener) {
         val call = apiService.getShowAllEpisodes(showId)
-        call.enqueue(object: Callback<List<Episodes>?> {
+        call.enqueue(object: Callback<List<Episodes>> {
             override fun onFailure(call: Call<List<Episodes>?>?, t: Throwable?) {
                 listener?.onError(t?.message)
             }
 
-            override fun onResponse(call: Call<List<Episodes>?>?, response: Response<List<Episodes>?>?) {
+            override fun onResponse(call: Call<List<Episodes>>, response: Response<List<Episodes>>) {
+                val lst: List<Episodes> = response.body()
+                for(ep: Episodes in lst){
+                    Log.i("TAGG_EPISODES",""+ ep.name)
+                }
                 listener?.onSuccess(response?.body())
             }
         })

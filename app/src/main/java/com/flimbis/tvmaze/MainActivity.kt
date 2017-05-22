@@ -4,16 +4,20 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
-import android.util.Log
+import android.support.v7.widget.RecyclerView
+import android.view.View
 import com.flimbis.tvmaze.adapter.ShowsAdapter
 import com.flimbis.tvmaze.di.component.DaggerShowsComponent
 import com.flimbis.tvmaze.di.component.ShowsComponent
 import com.flimbis.tvmaze.di.module.ShowsModule
 import com.flimbis.tvmaze.model.ShowsData
+import com.flimbis.tvmaze.tv.episode.EpisodeActivity
 import com.flimbis.tvmaze.tv.home.HomePresenter
 import com.flimbis.tvmaze.tv.home.ViewContract
-import com.flimbis.tvmaze.tv.shows.TvShowActivity
+import kotlinx.android.synthetic.main.activity_main.toolbar
 import kotlinx.android.synthetic.main.content_main.*
+import org.jetbrains.anko.find
+import org.jetbrains.anko.longToast
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), ViewContract.View, ShowsAdapter.ClickListener {
@@ -23,7 +27,10 @@ class MainActivity : AppCompatActivity(), ViewContract.View, ShowsAdapter.ClickL
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        shows_grid.layoutManager = GridLayoutManager(this, 4)
+        setSupportActionBar(toolbar)
+        supportActionBar!!.title = "TvAmaze"
+
+        shows_grid.layoutManager = GridLayoutManager(this, 3)
 
         //dagger component
         val component: ShowsComponent = DaggerShowsComponent.builder()
@@ -43,20 +50,17 @@ class MainActivity : AppCompatActivity(), ViewContract.View, ShowsAdapter.ClickL
     }
 
     override fun showEpisodes(show: ShowsData) {
-        val intnt = Intent(this, TvShowActivity::class.java)
+        val intnt = Intent(this, EpisodeActivity::class.java)
         intnt.putExtra("showid", show.id)
-        intnt.putExtra("showname", show.name)
-        intnt.putExtra("showimg", show.image)
-        intnt.putExtra("type", "episodeList")
         startActivity(intnt)
     }
 
     override fun showEmptyView() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     override fun showMessage(message: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        longToast(message)
     }
 
     override fun itemClicked(show: ShowsData) {

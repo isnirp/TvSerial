@@ -18,8 +18,6 @@ import javax.inject.Inject
 //class HomePresenter @Inject constructor(val view: ViewContract.View, val getShowsInteractorImpl: GetShowsInteractorImpl) : ViewContract.Presenter {
 class HomePresenter @Inject constructor(val view: ViewContract.View, val dataSource: TvMazeRepository) : ViewContract.Presenter {
 
-    var subscription: Subscription? = null
-
     override fun loadShows() {
 
         dataSource.getShowsListByPage("1", object : ShowsListener {
@@ -29,24 +27,9 @@ class HomePresenter @Inject constructor(val view: ViewContract.View, val dataSou
 
             override fun onError(msg: String?) {
                 Log.i("API_CALLBack", "" + msg)
+                view.showMessage("Check network connection")
             }
         })
-
-        /*subscription = getShowsInteractorImpl.getShowsPagination("1")
-                .subscribe(object: Observer<List<Shows>> {
-                    override fun onCompleted() {
-                        Log.i("RXXXXX","Completed")
-                    }
-
-                    override fun onNext(t: List<Shows>) {
-                        Log.i("RXXXXX",""+t.toString())
-                        view.setupAdapter(convertToShowDataList(t))
-                    }
-
-                    override fun onError(e: Throwable?) {
-                        Log.i("RXXXXX","Error")
-                    }
-                })*/
     }
 
     override fun navigateToShowsEpisodes(show: ShowsData) {
@@ -54,8 +37,6 @@ class HomePresenter @Inject constructor(val view: ViewContract.View, val dataSou
     }
 
     override fun unbind() {
-        if (subscription != null && !subscription!!.isUnsubscribed()) {
-            subscription!!.unsubscribe();
-        }
+
     }
 }
