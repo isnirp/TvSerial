@@ -10,11 +10,15 @@
     <include
         android:id="@+id/toolbar_episode_detail"
         layout="@layout/app_bar" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="16dp"
+        android:layout_below="@+id/toolbar_episode_detail">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar_episode_detail"
         android:layout_margin="16dp"
         android:orientation="vertical">
 
@@ -99,10 +103,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp"
             android:background="@drawable/custom_btn"
             android:text="Show Details"
             android:textColor="#ffffff" />
 
     </LinearLayout>
-
+    </ScrollView>
 </RelativeLayout>
