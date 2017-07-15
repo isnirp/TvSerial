@@ -16,17 +16,13 @@ import kotlinx.android.synthetic.main.items_shows.view.*
  */
 class ShowsAdapter(val shows: List<ShowsData>, val itemClick: (ShowsData)-> Unit) : RecyclerView.Adapter<ShowsAdapter.ViewHolder>() {
 
-    var callback: ClickListener? = null
-
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
-        var v = LayoutInflater.from(parent?.ctx).inflate(R.layout.items_shows, parent, false)
+        val v = LayoutInflater.from(parent?.ctx).inflate(R.layout.items_shows, parent, false)
         return ViewHolder(v, itemClick)
     }
 
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
-        val show: ShowsData = shows[position]
-
-        holder?.bindShows(show)
+        holder?.bindShows(shows[position])
     }
 
     override fun getItemCount(): Int = shows.size
@@ -34,17 +30,14 @@ class ShowsAdapter(val shows: List<ShowsData>, val itemClick: (ShowsData)-> Unit
     class ViewHolder(itemView: View, val itemClick: (ShowsData)-> Unit) : RecyclerView.ViewHolder(itemView){
         fun bindShows(show: ShowsData){
             with(show){
-                itemView.txt_shows_name.text = show.name
+                itemView.txt_shows_name.text = "$name"
                 Picasso.with(itemView.ctx)
-                        .load(show.image)
-                        .into(itemView.img_shows);
+                        .load("$image")
+                        .into(itemView.img_shows)
 
                 itemView.setOnClickListener{itemClick(this)}
             }
         }
     }
 
-    interface ClickListener {
-        fun itemClicked(show: ShowsData)
-    }
 }

@@ -17,7 +17,6 @@ import javax.inject.Inject
 class HomePresenter @Inject constructor(val view: ViewContract.View, val dataSource: TvMazeRepository) : ViewContract.Presenter {
 
     override fun loadShows() {
-
         dataSource.getShowsListByPage("1", object : ShowsListener {
             override fun onSuccess(shows: List<Shows>) {
                 view.setupAdapter(convertToShowDataList(shows))

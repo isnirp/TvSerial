@@ -44,7 +44,8 @@ class MainActivity : AppCompatActivity(), ViewContract.View {
     }
 
     override fun setupAdapter(shows: List<ShowsData>) {
-        val adapter: ShowsAdapter = ShowsAdapter(shows) {presenter.navigateToShowsEpisodes(it)}
+        //val adapter: ShowsAdapter = ShowsAdapter(shows) {show -> presenter.navigateToShowsEpisodes(show)}
+        val adapter: ShowsAdapter = ShowsAdapter(shows) {presenter.navigateToShowsEpisodes(it)}//use it where parameter is one
         shows_grid.adapter = adapter
     }
 
