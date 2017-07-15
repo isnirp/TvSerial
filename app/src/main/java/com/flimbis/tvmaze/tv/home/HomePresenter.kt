@@ -8,8 +8,6 @@ import com.flimbis.tvmaze.core.repository.TvMazeRepository
 import com.flimbis.tvmaze.data.TvMazeDataSource
 import com.flimbis.tvmaze.model.ShowsData
 import com.flimbis.tvmaze.util.convertToShowDataList
-import rx.Observer
-import rx.Subscription
 import javax.inject.Inject
 
 /**

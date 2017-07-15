@@ -20,7 +20,7 @@ import org.jetbrains.anko.find
 import org.jetbrains.anko.longToast
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), ViewContract.View, ShowsAdapter.ClickListener {
+class MainActivity : AppCompatActivity(), ViewContract.View {
     @Inject lateinit var presenter: HomePresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,9 +44,8 @@ class MainActivity : AppCompatActivity(), ViewContract.View, ShowsAdapter.ClickL
     }
 
     override fun setupAdapter(shows: List<ShowsData>) {
-        val adapter: ShowsAdapter = ShowsAdapter(this, shows)
+        val adapter: ShowsAdapter = ShowsAdapter(shows) {presenter.navigateToShowsEpisodes(it)}
         shows_grid.adapter = adapter
-        adapter.setClickListener(this)
     }
 
     override fun showEpisodes(show: ShowsData) {
@@ -61,9 +60,5 @@ class MainActivity : AppCompatActivity(), ViewContract.View, ShowsAdapter.ClickL
 
     override fun showMessage(message: String) {
         longToast(message)
-    }
-
-    override fun itemClicked(show: ShowsData) {
-        presenter.navigateToShowsEpisodes(show)
     }
 }

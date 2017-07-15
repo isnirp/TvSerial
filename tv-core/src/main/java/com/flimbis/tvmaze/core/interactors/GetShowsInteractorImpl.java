@@ -5,8 +5,8 @@ import com.flimbis.tvmaze.core.repository.TvMazeRepository;
 
 import java.util.List;
 
-import rx.Observable;
-import rx.functions.Func0;
+//import rx.Observable;
+//import rx.functions.Func0;
 
 /**
  * Created by Fifi on 5/19/2017.

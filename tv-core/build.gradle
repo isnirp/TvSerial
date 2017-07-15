@@ -15,7 +15,7 @@ dependencies {
     compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
     compile "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
     //rxjava
-    compile 'io.reactivex:rxjava:1.0.2'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.0'
 
 
     //dependency injection
