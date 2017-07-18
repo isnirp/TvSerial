@@ -2,7 +2,7 @@ package com.flimbis.tvmaze.tv.home
 
 import android.util.Log
 import com.flimbis.tvmaze.core.entity.Shows
-import com.flimbis.tvmaze.core.interactors.GetShowsInteractorImpl
+import com.flimbis.tvmaze.core.interactors.GetShowsList
 import com.flimbis.tvmaze.core.listeners.ShowsListener
 import com.flimbis.tvmaze.core.repository.TvMazeRepository
 import com.flimbis.tvmaze.data.TvMazeDataSource

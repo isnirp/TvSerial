@@ -1,5 +1,6 @@
 package com.flimbis.tvmaze.core.repository;
 
+import com.flimbis.tvmaze.core.entity.Episodes;
 import com.flimbis.tvmaze.core.entity.Shows;
 import com.flimbis.tvmaze.core.listeners.EpisodeDataListener;
 import com.flimbis.tvmaze.core.listeners.EpisodesListener;
@@ -8,21 +9,20 @@ import com.flimbis.tvmaze.core.listeners.ShowsListener;
 
 import java.util.List;
 
+import io.reactivex.Observable;
+
 /**
  * Created by Fifi on 5/19/2017.
  */
 
 public interface TvMazeRepository {
 
-    //get Shows by Pagination
-    void getShowsListByPage(final String queryPageNumber, ShowsListener listener);
+    Observable<List<Shows>> getShowsListByPage(final String queryPageNumber);
 
-    //get Shows by id
-    void getSelectedShowById(final long id, ShowDataListener listener);
+    Observable<Shows> getSelectedShowById(final long id);
 
-    //get Shows's episodes
-    void getShowEpisodesList(final long showId, EpisodesListener listener);
+    Observable<List<Episodes>> getShowEpisodesList(final long showId);
 
-    //get an episode
-    void getSelectedEpisode(final long id, final String querySeasonNumber, final String queryEpisodeNumber, EpisodeDataListener listener);
+    Observable<Episodes> getSelectedEpisode(final long id, final String querySeasonNumber, final String queryEpisodeNumber);
+
 }

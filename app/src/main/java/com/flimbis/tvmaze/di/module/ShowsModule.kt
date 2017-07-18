@@ -1,6 +1,6 @@
 package com.flimbis.tvmaze.di.module
 
-import com.flimbis.tvmaze.core.interactors.GetShowsInteractorImpl
+import com.flimbis.tvmaze.core.interactors.GetShowsList
 import com.flimbis.tvmaze.core.repository.TvMazeRepository
 import com.flimbis.tvmaze.di.scope.CustomScope
 import com.flimbis.tvmaze.tv.home.ViewContract
@@ -18,7 +18,7 @@ class ShowsModule(val view: ViewContract.View) {
 
     @Provides
     @CustomScope
-    fun provideGetShowsInteractor(repository: TvMazeRepository): GetShowsInteractorImpl {
-        return GetShowsInteractorImpl(repository)
+    fun provideGetShowsInteractor(repository: TvMazeRepository): GetShowsList {
+        return GetShowsList(repository)
     }
 }
