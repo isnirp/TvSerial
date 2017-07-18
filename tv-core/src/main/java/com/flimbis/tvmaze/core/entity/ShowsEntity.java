@@ -8,36 +8,22 @@ import java.util.List;
  * Created by Fifi on 5/19/2017.
  */
 
-public class Shows {
-    @SerializedName("id")
+public class ShowsEntity {
     private long id;
-    @SerializedName("name")
     private String name;
-    @SerializedName("type")
     private String type;
-    @SerializedName("language")
     private String language;
-    @SerializedName("genres")
     private List<String> genres;
-    @SerializedName("status")
     private String status;
-    @SerializedName("runtime")
     private int runtime;
-    @SerializedName("premiered")
     private String premiered;
-    @SerializedName("schedule")
-    private Schedule schedule;
-    @SerializedName("rating")
-    private Rating rating;
-    @SerializedName("network")
-    private Network network;
-    @SerializedName("image")
-    private Image image;
-    @SerializedName("summary")
+    private ScheduleEntity schedule;
+    private RatingEntity rating;
+    private NetworkEntity network;
+    private ImageEntity image;
     private String summary;
 
-
-    public Shows() {
+    public ShowsEntity() {
     }
 
     public long getId() {
@@ -56,11 +42,11 @@ public class Shows {
         this.name = name;
     }
 
-    public Image getImage() {
+    public ImageEntity getImage() {
         return image;
     }
 
-    public void setImage(Image image) {
+    public void setImage(ImageEntity image) {
         this.image = image;
     }
 
@@ -112,27 +98,27 @@ public class Shows {
         this.premiered = premiered;
     }
 
-    public Schedule getSchedule() {
+    public ScheduleEntity getSchedule() {
         return schedule;
     }
 
-    public void setSchedule(Schedule schedule) {
+    public void setSchedule(ScheduleEntity schedule) {
         this.schedule = schedule;
     }
 
-    public Rating getRating() {
+    public RatingEntity getRating() {
         return rating;
     }
 
-    public void setRating(Rating rating) {
+    public void setRating(RatingEntity rating) {
         this.rating = rating;
     }
 
-    public Network getNetwork() {
+    public NetworkEntity getNetwork() {
         return network;
     }
 
-    public void setNetwork(Network network) {
+    public void setNetwork(NetworkEntity network) {
         this.network = network;
     }
 

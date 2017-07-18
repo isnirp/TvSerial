@@ -6,27 +6,18 @@ import com.google.gson.annotations.SerializedName;
  * Created by Fifi on 5/19/2017.
  */
 
-public class Episodes {
-    @SerializedName("id")
+public class EpisodesEntity {
     private long id;
-    @SerializedName("name")
     private String name;
-    @SerializedName("season")
     private int season;
-    @SerializedName("number")
     private int number;
-    @SerializedName("airdate")
     private String airdate;
-    @SerializedName("airtime")
     private String airtime;
-    @SerializedName("runtime")
     private int runtime;
-    @SerializedName("image")
-    private Image image;
-    @SerializedName("summary")
+    private ImageEntity image;
     private String summary;
 
-    public Episodes() {
+    public EpisodesEntity() {
     }
 
     public long getId() {
@@ -85,11 +76,11 @@ public class Episodes {
         this.runtime = runtime;
     }
 
-    public Image getImage() {
+    public ImageEntity getImage() {
         return image;
     }
 
-    public void setImage(Image image) {
+    public void setImage(ImageEntity image) {
         this.image = image;
     }
 

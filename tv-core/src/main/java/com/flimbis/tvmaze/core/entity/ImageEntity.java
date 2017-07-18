@@ -6,13 +6,13 @@ import com.google.gson.annotations.SerializedName;
  * Created by Fifi on 5/19/2017.
  */
 
-public class Image {
+public class ImageEntity {
     @SerializedName("medium")
     private String medium;
     @SerializedName("original")
     private String original;
 
-    public Image() {
+    public ImageEntity() {
     }
 
     public String getMedium() {

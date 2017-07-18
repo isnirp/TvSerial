@@ -1,7 +1,9 @@
 package com.flimbis.tvmaze.data.remote
 
-import com.flimbis.tvmaze.core.entity.Episodes
-import com.flimbis.tvmaze.core.entity.Shows
+import com.flimbis.tvmaze.core.entity.EpisodesEntity
+import com.flimbis.tvmaze.core.entity.ShowsEntity
+import com.flimbis.tvmaze.data.model.Episodes
+import com.flimbis.tvmaze.data.model.Shows
 import io.reactivex.Observable
 import retrofit2.Call
 import retrofit2.http.GET

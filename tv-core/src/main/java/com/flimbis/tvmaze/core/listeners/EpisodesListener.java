@@ -1,6 +1,6 @@
 package com.flimbis.tvmaze.core.listeners;
 
-import com.flimbis.tvmaze.core.entity.Episodes;
+import com.flimbis.tvmaze.core.entity.EpisodesEntity;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import java.util.List;
  */
 
 public interface EpisodesListener {
-    void onSuccess(List<Episodes> episodes);
+    void onSuccess(List<EpisodesEntity> episodes);
 
     void onError(String msg);
 }

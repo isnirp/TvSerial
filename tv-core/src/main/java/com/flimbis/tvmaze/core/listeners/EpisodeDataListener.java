@@ -1,15 +1,13 @@
 package com.flimbis.tvmaze.core.listeners;
 
-import com.flimbis.tvmaze.core.entity.Episodes;
-
-import java.util.List;
+import com.flimbis.tvmaze.core.entity.EpisodesEntity;
 
 /**
  * Created by Fifi on 5/19/2017.
  */
 
 public interface EpisodeDataListener {
-    void onSuccess(Episodes episode);
+    void onSuccess(EpisodesEntity episode);
 
     void onError(String msg);
 }

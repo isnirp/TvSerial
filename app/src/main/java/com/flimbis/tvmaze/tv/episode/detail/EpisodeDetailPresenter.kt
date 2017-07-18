@@ -1,7 +1,7 @@
 package com.flimbis.tvmaze.tv.episode.detail
 
 import android.util.Log
-import com.flimbis.tvmaze.core.entity.Episodes
+import com.flimbis.tvmaze.core.entity.EpisodesEntity
 import com.flimbis.tvmaze.core.listeners.EpisodeDataListener
 import com.flimbis.tvmaze.core.repository.TvMazeRepository
 import com.flimbis.tvmaze.util.convertToEpisodesData
@@ -15,7 +15,7 @@ class EpisodeDetailPresenter @Inject constructor(val view: ViewContract.View, va
 
     override fun loadEpisodes(showid: Long, season: String, number: String) {
         dataSource.getSelectedEpisode(showid,season,number, object: EpisodeDataListener {
-            override fun onSuccess(episode: Episodes) {
+            override fun onSuccess(episode: EpisodesEntity) {
                 view.showEpisode(convertToEpisodesData(episode))
             }
 

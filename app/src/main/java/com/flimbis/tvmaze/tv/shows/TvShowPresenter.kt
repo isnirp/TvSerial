@@ -1,7 +1,7 @@
 package com.flimbis.tvmaze.tv.shows
 
 import android.util.Log
-import com.flimbis.tvmaze.core.entity.Shows
+import com.flimbis.tvmaze.core.entity.ShowsEntity
 import com.flimbis.tvmaze.core.listeners.ShowDataListener
 import com.flimbis.tvmaze.core.repository.TvMazeRepository
 import com.flimbis.tvmaze.util.convertToShowData
@@ -14,7 +14,7 @@ class TvShowPresenter @Inject constructor(val view: ViewContract.View, val dataS
 
     override fun loadShow(showid: Long) {
         dataSource.getSelectedShowById(showid,object: ShowDataListener {
-            override fun onSuccess(show: Shows) {
+            override fun onSuccess(show: ShowsEntity) {
                 view.showShowDetail(convertToShowData(show))
             }
 

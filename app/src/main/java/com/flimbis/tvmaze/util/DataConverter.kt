@@ -1,37 +1,37 @@
 package com.flimbis.tvmaze.util
 
-import com.flimbis.tvmaze.core.entity.Episodes
-import com.flimbis.tvmaze.core.entity.Shows
+import com.flimbis.tvmaze.core.entity.EpisodesEntity
+import com.flimbis.tvmaze.core.entity.ShowsEntity
 import com.flimbis.tvmaze.model.EpisodeData
 import com.flimbis.tvmaze.model.ShowsData
 
 /**
  * Created by Fifi on 5/19/2017.
  */
-fun convertToShowData(shows: Shows): ShowsData {
-    val showsdata: ShowsData = ShowsData(shows.id, shows.name, shows.type, shows.language, shows.genres,
-            shows.status, shows.runtime, shows.premiered ?: "not available", shows.schedule.time, shows.schedule.days, shows.rating.average ?: 0.0,
-            shows.image.medium ?: "http://jw-studio.de/wp-content/themes/crowd/images/noimage_2.gif", shows.summary ?: "no summary")
+fun convertToShowData(showsEntity: ShowsEntity): ShowsData {
+    val showsdata: ShowsData = ShowsData(showsEntity.id, showsEntity.name, showsEntity.type, showsEntity.language, showsEntity.genres,
+            showsEntity.status, showsEntity.runtime, showsEntity.premiered ?: "not available", showsEntity.schedule.time, showsEntity.schedule.days, showsEntity.rating.average ?: 0.0,
+            showsEntity.image.medium ?: "http://jw-studio.de/wp-content/themes/crowd/images/noimage_2.gif", showsEntity.summary ?: "no summary")
 
     return showsdata
 }
 
-fun convertToShowDataList(list: List<Shows>): List<ShowsData> {
+fun convertToShowDataList(list: List<ShowsEntity>): List<ShowsData> {
     return list.mapIndexed { i, shows ->
         convertToShowData(shows)
     }
 }
 
-fun convertToEpisodesData(episodes: Episodes): EpisodeData {
-    val episodedata: EpisodeData = EpisodeData(episodes.id, episodes.name, episodes.season ?: 1, episodes.number?: 1,
-            episodes.airdate, episodes.airtime, episodes.runtime,
-            episodes.image?.medium ?: "http://jw-studio.de/wp-content/themes/crowd/images/noimage_2.gif",
-            episodes.summary ?: "no summary")
+fun convertToEpisodesData(episodesEntity: EpisodesEntity): EpisodeData {
+    val episodedata: EpisodeData = EpisodeData(episodesEntity.id, episodesEntity.name, episodesEntity.season ?: 1, episodesEntity.number?: 1,
+            episodesEntity.airdate, episodesEntity.airtime, episodesEntity.runtime,
+            episodesEntity.image?.medium ?: "http://jw-studio.de/wp-content/themes/crowd/images/noimage_2.gif",
+            episodesEntity.summary ?: "no summary")
 
     return episodedata
 }
 
-fun convertToEpisodeDataList(list: List<Episodes>): List<EpisodeData> {
+fun convertToEpisodeDataList(list: List<EpisodesEntity>): List<EpisodeData> {
     return list.mapIndexed { i, episodes ->
         convertToEpisodesData(episodes)
     }

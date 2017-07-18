@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by Fifi on 5/21/2017.
  */
 
-public class Country {
+public class CountryEntity {
     @SerializedName("name")
     private String name;
     @SerializedName("code")
@@ -14,7 +14,7 @@ public class Country {
     @SerializedName("timezone")
     private String timezone;
 
-    public Country() {
+    public CountryEntity() {
     }
 
     public String getName() {

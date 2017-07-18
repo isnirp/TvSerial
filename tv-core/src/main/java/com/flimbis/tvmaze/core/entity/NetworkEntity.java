@@ -6,15 +6,15 @@ import com.google.gson.annotations.SerializedName;
  * Created by Fifi on 5/21/2017.
  */
 
-public class Network {
+public class NetworkEntity {
     @SerializedName("id")
     private int id;
     @SerializedName("name")
     private String name;
     @SerializedName("country")
-    private Country country;
+    private CountryEntity country;
 
-    public Network() {
+    public NetworkEntity() {
     }
 
     public int getId() {
@@ -33,11 +33,11 @@ public class Network {
         this.name = name;
     }
 
-    public Country getCountry() {
+    public CountryEntity getCountry() {
         return country;
     }
 
-    public void setCountry(Country country) {
+    public void setCountry(CountryEntity country) {
         this.country = country;
     }
 }
