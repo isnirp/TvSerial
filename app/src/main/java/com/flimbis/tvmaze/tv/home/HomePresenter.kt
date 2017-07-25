@@ -3,6 +3,8 @@ package com.flimbis.tvmaze.tv.home
 import android.util.Log
 import com.flimbis.tvmaze.core.entity.ShowsEntity
 import com.flimbis.tvmaze.core.interactors.GetShowsList
+import com.flimbis.tvmaze.core.interactors.Interactor
+import com.flimbis.tvmaze.core.interactors.UseCaseObserver
 import com.flimbis.tvmaze.core.listeners.ShowsListener
 import com.flimbis.tvmaze.core.repository.TvMazeRepository
 import com.flimbis.tvmaze.data.TvMazeDataSource
@@ -13,20 +15,10 @@ import javax.inject.Inject
 /**
  * Created by Fifi on 5/19/2017.
  */
-//class HomePresenter @Inject constructor(val view: ViewContract.View, val getShowsInteractorImpl: GetShowsInteractorImpl) : ViewContract.Presenter {
-class HomePresenter @Inject constructor(val view: ViewContract.View, val dataSource: TvMazeRepository) : ViewContract.Presenter {
+class HomePresenter @Inject constructor(val view: ViewContract.View, val interactor: GetShowsList) : ViewContract.Presenter {
 
     override fun loadShows() {
-        dataSource.getShowsListByPage("1", object : ShowsListener {
-            override fun onSuccess(shows: List<ShowsEntity>) {
-                view.setupAdapter(convertToShowDataList(shows))
-            }
-
-            override fun onError(msg: String?) {
-                Log.i("API_CALLBack", "" + msg)
-                view.showMessage("Check network connection")
-            }
-        })
+        interactor.execute(GetShowsListObserver(),null)
     }
 
     override fun navigateToShowsEpisodes(show: ShowsData) {
@@ -34,6 +26,25 @@ class HomePresenter @Inject constructor(val view: ViewContract.View, val dataSou
     }
 
     override fun unbind() {
+        interactor.dispose()
+    }
 
+    private fun displayShowsList(shows: List<ShowsEntity>){
+        view.setupAdapter(convertToShowDataList(shows))
+    }
+
+    inner class GetShowsListObserver : UseCaseObserver<List<ShowsEntity>>() {
+        override fun onNext(t: List<ShowsEntity>) {
+            super.onNext(t)
+            displayShowsList(t)
+        }
+
+        override fun onError(e: Throwable?) {
+            super.onError(e)
+        }
+
+        override fun onComplete() {
+            super.onComplete()
+        }
     }
 }

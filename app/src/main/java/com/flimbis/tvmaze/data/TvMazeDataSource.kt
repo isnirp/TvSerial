@@ -8,9 +8,7 @@ import com.flimbis.tvmaze.core.listeners.EpisodesListener
 import com.flimbis.tvmaze.core.listeners.ShowDataListener
 import com.flimbis.tvmaze.core.listeners.ShowsListener
 import com.flimbis.tvmaze.core.repository.TvMazeRepository
-import com.flimbis.tvmaze.data.model.Shows
-import com.flimbis.tvmaze.data.model.transformToShowsEntity
-import com.flimbis.tvmaze.data.model.transformToShowsEntityList
+import com.flimbis.tvmaze.data.model.*
 import com.flimbis.tvmaze.data.remote.ApiService
 import io.reactivex.Observable
 import io.reactivex.functions.Function
@@ -24,19 +22,22 @@ import retrofit2.Response
 class TvMazeDataSource(val apiService: ApiService) : TvMazeRepository {
 
     override fun getShowsListByPage(queryPageNumber: String): Observable<List<ShowsEntity>> {
-        return apiService.getAllShowsByPage(queryPageNumber).map { transformToShowsEntityList(it)}
+        return apiService.getAllShowsByPage(queryPageNumber).
+                map { transformToShowsEntityList(it) }
     }
 
     override fun getSelectedShowById(id: Long): Observable<ShowsEntity> {
-        //return apiService.getShowById(id).map { (Shows) -> transformToShowsEntity(shows) }
-        return apiService.getShowById(id).map{ transformToShowsEntity(it) }
+        return apiService.getShowById(id).
+                map { shows -> transformToShowsEntity(shows) }
     }
 
-    override fun getShowEpisodesList(showId: Long): Observable<MutableList<EpisodesEntity>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun getShowEpisodesList(showId: Long): Observable<List<EpisodesEntity>> {
+        return apiService.getShowAllEpisodes(showId).
+                map { transformToEpisodesEntityList(it) }
     }
 
-    override fun getSelectedEpisode(id: Long, querySeasonNumber: String?, queryEpisodeNumber: String?): Observable<EpisodesEntity> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun getSelectedEpisode(id: Long, querySeasonNumber: String, queryEpisodeNumber: String): Observable<EpisodesEntity> {
+        return apiService.getShowEpisode(id, querySeasonNumber, queryEpisodeNumber).
+                map { transformToEpisodesEntity(it) }
     }
 }
