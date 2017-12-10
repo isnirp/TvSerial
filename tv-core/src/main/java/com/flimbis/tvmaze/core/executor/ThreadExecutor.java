@@ -19,8 +19,8 @@ public class ThreadExecutor implements Executor {
 
     public ThreadExecutor(){
         threadFactory = Executors.defaultThreadFactory();
-        executorPool = new ThreadPoolExecutor(3, 5, 10, TimeUnit.SECONDS,
-                new LinkedBlockingQueue<>(), threadFactory);
+        //executorPool = new ThreadPoolExecutor(3, 5, 10, TimeUnit.SECONDS,
+            //    new LinkedBlockingQueue<>(), threadFactory);
     }
 
     @Override
