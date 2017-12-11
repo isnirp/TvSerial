@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by Fifi on 12/10/2017.
  */
 
-public class Episodes {
+public class Episode {
     @SerializedName("id")
     private long id;
     @SerializedName("name")
@@ -26,10 +26,10 @@ public class Episodes {
     @SerializedName("summary")
     private String summary;
 
-    public Episodes() {
+    public Episode() {
     }
 
-    public Episodes(long id, String name, int season, int number, String airDate, String airTime, int runTime, Image image, String summary) {
+    public Episode(long id, String name, int season, int number, String airDate, String airTime, int runTime, Image image, String summary) {
         this.id = id;
         this.name = name;
         this.season = season;

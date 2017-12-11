@@ -8,7 +8,7 @@ import java.util.List;
  * Created by Fifi on 12/10/2017.
  */
 
-public class Shows {
+public class Show {
     @SerializedName("id")
     private long id;
     @SerializedName("name")
@@ -34,7 +34,7 @@ public class Shows {
     @SerializedName("summary")
     private String summary;
 
-    public Shows() {
+    public Show() {
     }
 
     public long getId() {

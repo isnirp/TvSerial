@@ -1,6 +1,5 @@
 package com.flimbis.tvmaze.core.interactors;
 
-import com.flimbis.tvmaze.core.entity.EpisodesEntity;
 import com.flimbis.tvmaze.core.executor.ThreadExecutor;
 import com.flimbis.tvmaze.core.repository.TvMazeRepository;
 

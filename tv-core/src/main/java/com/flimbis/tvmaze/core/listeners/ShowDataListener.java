@@ -1,7 +1,5 @@
 package com.flimbis.tvmaze.core.listeners;
 
-import com.flimbis.tvmaze.core.entity.ShowsEntity;
-
 /**
  * Created by Fifi on 5/19/2017.
  */

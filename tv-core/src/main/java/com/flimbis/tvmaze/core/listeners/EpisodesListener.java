@@ -1,7 +1,5 @@
 package com.flimbis.tvmaze.core.listeners;
 
-import com.flimbis.tvmaze.core.entity.EpisodesEntity;
-
 import java.util.List;
 
 /**

@@ -1,8 +1,5 @@
 package com.flimbis.tvmaze.core.repository;
 
-import com.flimbis.tvmaze.core.entity.EpisodesEntity;
-import com.flimbis.tvmaze.core.entity.ShowsEntity;
-
 import java.util.List;
 
 import io.reactivex.Observable;

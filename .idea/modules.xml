@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/TvMaze.iml" filepath="$PROJECT_DIR$/TvMaze.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/tv-core/tv-core.iml" filepath="$PROJECT_DIR$/tv-core/tv-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tv-data/tv-data.iml" filepath="$PROJECT_DIR$/tv-data/tv-data.iml" />
     </modules>
   </component>
 </project>
