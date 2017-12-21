@@ -19,7 +19,7 @@ import retrofit2.Response
 /**
  * Created by Fifi on 5/19/2017.
  */
-class TvMazeDataSource(val apiService: ApiService) : TvMazeRepository {
+class TvMazeDataSource(val apiService: ApiService) {
 
     override fun getShowsListByPage(queryPageNumber: String): Observable<List<ShowsEntity>> {
         return apiService.getAllShowsByPage(queryPageNumber).

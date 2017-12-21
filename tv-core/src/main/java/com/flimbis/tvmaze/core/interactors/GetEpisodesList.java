@@ -1,7 +1,8 @@
 package com.flimbis.tvmaze.core.interactors;
 
+import com.flimbis.tvmaze.core.entity.Episode;
 import com.flimbis.tvmaze.core.executor.ThreadExecutor;
-import com.flimbis.tvmaze.core.repository.TvMazeRepository;
+import com.flimbis.tvmaze.core.repository.EpisodesRepository;
 
 import java.util.List;
 
@@ -12,17 +13,17 @@ import io.reactivex.Scheduler;
  * Created by Fifi on 7/16/2017.
  */
 
-public class GetEpisodesList extends Interactor<List<EpisodesEntity>, Param> {
-    private TvMazeRepository mRepository;
+public class GetEpisodesList extends UseCase<List<Episode>, Long> {
+    private EpisodesRepository mRepository;
 
-    public GetEpisodesList(TvMazeRepository repository, ThreadExecutor threadExecutor, Scheduler uiThread) {
-        super(threadExecutor, uiThread);
+    public GetEpisodesList(EpisodesRepository repository, Scheduler uiThread) {
+        super(uiThread);
         this.mRepository = repository;
 
     }
 
     @Override
-    public Observable<List<EpisodesEntity>> buildInteractorObservable(Param p) {
-        return mRepository.getShowEpisodesList(p.getId());
+    public Observable<List<Episode>> buildObservable(Long showId) {
+        return mRepository.getAllPerShow(showId);
     }
 }

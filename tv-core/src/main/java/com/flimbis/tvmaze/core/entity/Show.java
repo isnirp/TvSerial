@@ -9,29 +9,17 @@ import java.util.List;
  */
 
 public class Show {
-    @SerializedName("id")
     private long id;
-    @SerializedName("name")
     private String name;
-    @SerializedName("language")
     private String language;
-    @SerializedName("genres")
     private List<String> genres;
-    @SerializedName("status")
     private String status;
-    @SerializedName("runtime")
     private int runtime;
-    @SerializedName("premiered")
     private String premiered;
-    @SerializedName("time")
     private String scheduleTime;
-    @SerializedName("days")
     private List<String> scheduleDays;
-    @SerializedName("rating")
     private double rating;
-    @SerializedName("image")
     private Image image;
-    @SerializedName("summary")
     private String summary;
 
     public Show() {

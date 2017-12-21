@@ -4,26 +4,23 @@ import com.flimbis.tvmaze.core.entity.Show;
 import com.flimbis.tvmaze.core.executor.ThreadExecutor;
 import com.flimbis.tvmaze.core.repository.ShowsRepository;
 
-import java.util.List;
-
 import io.reactivex.Observable;
 import io.reactivex.Scheduler;
 
 /**
- * Created by Fifi on 5/19/2017.
+ * Created by Fifi on 7/16/2017.
  */
 
-public class GetShowsList extends UseCase<List<Show>, Integer> {
+public class GetShow extends UseCase<Show, Long> {
     private ShowsRepository mRepository;
 
-    public GetShowsList(ShowsRepository repository, Scheduler uiThread) {
-        super( uiThread);
+    public GetShow(ShowsRepository repository,  Scheduler uiThread) {
+        super(uiThread);
         this.mRepository = repository;
     }
 
     @Override
-    public Observable<List<Show>> buildObservable(Integer page) {
-        return mRepository.getAllPerPage(page);
+    public Observable<Show> buildObservable(Long id) {
+        return mRepository.getById(id);
     }
-
 }

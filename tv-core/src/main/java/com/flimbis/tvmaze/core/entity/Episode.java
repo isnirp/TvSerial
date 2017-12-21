@@ -7,23 +7,14 @@ import com.google.gson.annotations.SerializedName;
  */
 
 public class Episode {
-    @SerializedName("id")
     private long id;
-    @SerializedName("name")
     private String name;
-    @SerializedName("season")
     private int season;
-    @SerializedName("number")
     private int number;
-    @SerializedName("airdate")
     private String airDate;
-    @SerializedName("airtime")
     private String airTime;
-    @SerializedName("runtime")
     private int runTime;
-    @SerializedName("image")
     private Image image;
-    @SerializedName("summary")
     private String summary;
 
     public Episode() {

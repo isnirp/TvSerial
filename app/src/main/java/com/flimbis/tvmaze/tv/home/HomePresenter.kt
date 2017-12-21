@@ -3,7 +3,7 @@ package com.flimbis.tvmaze.tv.home
 import android.util.Log
 import com.flimbis.tvmaze.core.entity.ShowsEntity
 import com.flimbis.tvmaze.core.interactors.GetShowsList
-import com.flimbis.tvmaze.core.interactors.Interactor
+import com.flimbis.tvmaze.core.interactors.UseCase
 import com.flimbis.tvmaze.core.interactors.UseCaseObserver
 import com.flimbis.tvmaze.core.listeners.ShowsListener
 import com.flimbis.tvmaze.core.repository.TvMazeRepository

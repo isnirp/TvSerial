@@ -2,7 +2,7 @@ package com.flimbis.tvmaze.tv.shows
 
 import android.util.Log
 import com.flimbis.tvmaze.core.entity.ShowsEntity
-import com.flimbis.tvmaze.core.interactors.GetShowDetails
+import com.flimbis.tvmaze.core.interactors.GetShow
 import com.flimbis.tvmaze.core.interactors.Param
 import com.flimbis.tvmaze.core.interactors.UseCaseObserver
 import com.flimbis.tvmaze.core.listeners.ShowDataListener
@@ -13,7 +13,7 @@ import javax.inject.Inject
 /**
  * Created by Fifi on 5/20/2017.
  */
-class TvShowPresenter @Inject constructor(val view: ViewContract.View, val interactor: GetShowDetails) : ViewContract.Presenter {
+class TvShowPresenter @Inject constructor(val view: ViewContract.View, val interactor: GetShow) : ViewContract.Presenter {
 
     override fun loadShow(showid: Long) {
         val p: Param = Param(showid)
