@@ -11,5 +11,4 @@ import io.reactivex.Observable;
  */
 
 public interface ShowsRepository extends BaseRepository<Show> {
-    Observable<List<Show>> getAllPerPage(int page);
 }
