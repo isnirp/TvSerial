@@ -1,7 +1,5 @@
 package com.flimbis.tvmaze.core.entity;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.util.List;
 
 /**
@@ -11,16 +9,12 @@ import java.util.List;
 public class Show {
     private long id;
     private String name;
-    private String language;
     private List<String> genres;
     private String status;
-    private int runtime;
-    private String premiered;
-    private String scheduleTime;
-    private List<String> scheduleDays;
-    private double rating;
-    private Image image;
+    private Schedule schedule;
+    private String image;
     private String summary;
+    private String tvMazeInfo;//url that links to detailed info from tv maze
 
     public Show() {
     }
@@ -41,14 +35,6 @@ public class Show {
         this.name = name;
     }
 
-    public String getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(String language) {
-        this.language = language;
-    }
-
     public List<String> getGenres() {
         return genres;
     }
@@ -65,51 +51,19 @@ public class Show {
         this.status = status;
     }
 
-    public int getRuntime() {
-        return runtime;
+    public Schedule getSchedule() {
+        return schedule;
     }
 
-    public void setRuntime(int runtime) {
-        this.runtime = runtime;
+    public void setSchedule(Schedule schedule) {
+        this.schedule = schedule;
     }
 
-    public String getPremiered() {
-        return premiered;
-    }
-
-    public void setPremiered(String premiered) {
-        this.premiered = premiered;
-    }
-
-    public String getScheduleTime() {
-        return scheduleTime;
-    }
-
-    public void setScheduleTime(String scheduleTime) {
-        this.scheduleTime = scheduleTime;
-    }
-
-    public List<String> getScheduleDays() {
-        return scheduleDays;
-    }
-
-    public void setScheduleDays(List<String> scheduleDays) {
-        this.scheduleDays = scheduleDays;
-    }
-
-    public double getRating() {
-        return rating;
-    }
-
-    public void setRating(double rating) {
-        this.rating = rating;
-    }
-
-    public Image getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(Image image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
@@ -119,5 +73,13 @@ public class Show {
 
     public void setSummary(String summary) {
         this.summary = summary;
+    }
+
+    public String getTvMazeInfo() {
+        return tvMazeInfo;
+    }
+
+    public void setTvMazeInfo(String tvMazeInfo) {
+        this.tvMazeInfo = tvMazeInfo;
     }
 }

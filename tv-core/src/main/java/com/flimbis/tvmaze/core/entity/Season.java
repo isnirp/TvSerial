@@ -1,19 +1,19 @@
 package com.flimbis.tvmaze.core.entity;
 
 /**
- * Created by Fifi on 12/10/2017.
+ * Created by Fifi on 6/5/2018.
  */
 
-public class Episode {
+public class Season {
     private long id;
     private String name;
-    private int season;
     private int number;
-    private int runTime;
+    private int episodes;
+    private String endDate;
     private String image;
     private String summary;
 
-    public Episode() {
+    public Season() {
     }
 
     public long getId() {
@@ -32,14 +32,6 @@ public class Episode {
         this.name = name;
     }
 
-    public int getSeason() {
-        return season;
-    }
-
-    public void setSeason(int season) {
-        this.season = season;
-    }
-
     public int getNumber() {
         return number;
     }
@@ -48,12 +40,20 @@ public class Episode {
         this.number = number;
     }
 
-    public int getRunTime() {
-        return runTime;
+    public int getEpisodes() {
+        return episodes;
     }
 
-    public void setRunTime(int runTime) {
-        this.runTime = runTime;
+    public void setEpisodes(int episodes) {
+        this.episodes = episodes;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
     }
 
     public String getImage() {

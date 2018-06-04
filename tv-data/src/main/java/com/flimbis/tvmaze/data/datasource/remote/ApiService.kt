@@ -1,17 +1,14 @@
-package com.flimbis.tvmaze.data.remote
+package com.flimbis.tvmaze.data.datasource.remote
 
-import com.flimbis.tvmaze.core.entity.EpisodesEntity
-import com.flimbis.tvmaze.core.entity.ShowsEntity
 import com.flimbis.tvmaze.data.model.Episodes
 import com.flimbis.tvmaze.data.model.Shows
 import io.reactivex.Observable
-import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
 /**
- * Created by Fifi on 5/19/2017.
+ * Created by Fifi on 12/21/2017.
  */
 interface ApiService {
     @GET("shows?page=1")   //http://api.tvmaze.com/shows
