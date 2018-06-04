@@ -1,6 +1,7 @@
 package com.flimbis.tvmaze.data.datasource.remote
 
 import com.flimbis.tvmaze.data.model.Episodes
+import com.flimbis.tvmaze.data.model.Seasons
 import com.flimbis.tvmaze.data.model.Shows
 import io.reactivex.Observable
 import io.reactivex.Single
@@ -40,4 +41,16 @@ interface ApiService {
     * */
     @GET("shows/{id}/episodebynumber")
     fun getEpisodeOfShow(@Path("id") id: Long, @Query("season") seasonNumber: String, @Query("number") episodeNumber: String): Single<Episodes>
+
+    /*
+    * endpoint http://api.tvmaze.com/shows/1/seasons
+    * */
+    @GET("shows/{id}/seasons")
+    fun getAllSeasonsOfShow(@Path("id") id: Long): Observable<List<Seasons>>
+
+    /*
+    * endpoint http://api.tvmaze.com/seasons/1/episodes
+    * */
+    @GET("seasons/{id}/episodes")
+    fun getAllEpisodesOfSeasons(@Path("id") id: Long): Observable<List<Episodes>>
 }

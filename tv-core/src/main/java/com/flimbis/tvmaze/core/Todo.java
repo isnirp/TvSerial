@@ -5,7 +5,6 @@ package com.flimbis.tvmaze.core;
  */
 
 public class Todo {
-    //setup retrofit
-    //repository architecture
     //core
+    //interactors and usecases
 }
