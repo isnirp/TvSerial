@@ -22,7 +22,7 @@ public class GetEpisode extends UseCase<EpisodeEntity,Long> {
 
     @Override
     public Observable<EpisodeEntity> buildObservable(Long id) {
-        return mRepository.get(id, season, episode);
+        return mRepository.get(id, season, episode).toObservable();
     }
 
     public void setSeason(int season){

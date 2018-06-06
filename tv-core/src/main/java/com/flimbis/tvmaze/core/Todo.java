@@ -8,4 +8,7 @@ public class Todo {
     //core
     //interactors and usecases
     //test
+    //data source
+    //repo impl
+    //test
 }

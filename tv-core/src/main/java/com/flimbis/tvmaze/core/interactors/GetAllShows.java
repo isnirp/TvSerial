@@ -12,17 +12,17 @@ import io.reactivex.Scheduler;
  * Created by Fifi on 5/19/2017.
  */
 
-public class GetShowsList extends UseCase<List<ShowEntity>, Integer> {
+public class GetAllShows extends UseCase<List<ShowEntity>, Integer> {
     private ShowsRepository mRepository;
 
-    public GetShowsList(ShowsRepository repository, Scheduler uiThread) {
+    public GetAllShows(ShowsRepository repository, Scheduler uiThread) {
         super( uiThread);
         this.mRepository = repository;
     }
 
     @Override
     public Observable<List<ShowEntity>> buildObservable(Integer page) {
-        return mRepository.getAllPerPage(page);
+        return mRepository.getAll(page);
     }
 
 }

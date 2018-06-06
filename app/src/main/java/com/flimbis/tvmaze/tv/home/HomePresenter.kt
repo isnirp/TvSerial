@@ -2,7 +2,7 @@ package com.flimbis.tvmaze.tv.home
 
 import android.util.Log
 import com.flimbis.tvmaze.core.entity.ShowsEntity
-import com.flimbis.tvmaze.core.interactors.GetShowsList
+import com.flimbis.tvmaze.core.interactors.GetAllShows
 import com.flimbis.tvmaze.core.interactors.UseCase
 import com.flimbis.tvmaze.core.interactors.UseCaseObserver
 import com.flimbis.tvmaze.core.listeners.ShowsListener
@@ -15,7 +15,7 @@ import javax.inject.Inject
 /**
  * Created by Fifi on 5/19/2017.
  */
-class HomePresenter @Inject constructor(val view: ViewContract.View, val interactor: GetShowsList) : ViewContract.Presenter {
+class HomePresenter @Inject constructor(val view: ViewContract.View, val interactor: GetAllShows) : ViewContract.Presenter {
 
     override fun loadShows() {
         interactor.execute(GetShowsListObserver(),null)
