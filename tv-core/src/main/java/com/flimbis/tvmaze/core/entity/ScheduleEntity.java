@@ -6,11 +6,11 @@ import java.util.List;
  * Created by Fifi on 6/5/2018.
  */
 
-public class Schedule {
+public class ScheduleEntity {
     private String time;
     private List<String> days;
 
-    public Schedule(String time, List<String> days) {
+    public ScheduleEntity(String time, List<String> days) {
         this.time = time;
         this.days = days;
     }

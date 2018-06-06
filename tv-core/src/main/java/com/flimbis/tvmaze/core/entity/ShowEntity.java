@@ -6,17 +6,17 @@ import java.util.List;
  * Created by Fifi on 12/10/2017.
  */
 
-public class Show {
+public class ShowEntity {
     private long id;
     private String name;
     private List<String> genres;
     private String status;
-    private Schedule schedule;
+    private ScheduleEntity schedule;
     private String image;
     private String summary;
     private String tvMazeInfo;//url that links to detailed info from tv maze
 
-    public Show() {
+    public ShowEntity() {
     }
 
     public long getId() {
@@ -51,11 +51,11 @@ public class Show {
         this.status = status;
     }
 
-    public Schedule getSchedule() {
+    public ScheduleEntity getSchedule() {
         return schedule;
     }
 
-    public void setSchedule(Schedule schedule) {
+    public void setSchedule(ScheduleEntity schedule) {
         this.schedule = schedule;
     }
 

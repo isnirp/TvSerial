@@ -1,7 +1,6 @@
 package com.flimbis.tvmaze.core.interactors;
 
-import com.flimbis.tvmaze.core.entity.Show;
-import com.flimbis.tvmaze.core.executor.ThreadExecutor;
+import com.flimbis.tvmaze.core.entity.ShowEntity;
 import com.flimbis.tvmaze.core.repository.ShowsRepository;
 
 import java.util.List;
@@ -13,7 +12,7 @@ import io.reactivex.Scheduler;
  * Created by Fifi on 5/19/2017.
  */
 
-public class GetShowsList extends UseCase<List<Show>, Integer> {
+public class GetShowsList extends UseCase<List<ShowEntity>, Integer> {
     private ShowsRepository mRepository;
 
     public GetShowsList(ShowsRepository repository, Scheduler uiThread) {
@@ -22,7 +21,7 @@ public class GetShowsList extends UseCase<List<Show>, Integer> {
     }
 
     @Override
-    public Observable<List<Show>> buildObservable(Integer page) {
+    public Observable<List<ShowEntity>> buildObservable(Integer page) {
         return mRepository.getAllPerPage(page);
     }
 

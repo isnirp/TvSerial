@@ -2,7 +2,7 @@ package com.flimbis.tvmaze.tv.episode
 
 import android.util.Log
 import com.flimbis.tvmaze.core.entity.EpisodesEntity
-import com.flimbis.tvmaze.core.interactors.GetEpisodesList
+import com.flimbis.tvmaze.core.interactors.GetAllEpisodes
 import com.flimbis.tvmaze.core.interactors.UseCaseObserver
 import com.flimbis.tvmaze.core.listeners.EpisodesListener
 import com.flimbis.tvmaze.core.repository.TvMazeRepository
@@ -13,7 +13,7 @@ import javax.inject.Inject
 /**
  * Created by Fifi on 5/19/2017.
  */
-class EpisodePresenter @Inject constructor(val view: ViewContract.View, val interator: GetEpisodesList) : ViewContract.Presenter {
+class EpisodePresenter @Inject constructor(val view: ViewContract.View, val interator: GetAllEpisodes) : ViewContract.Presenter {
 
     override fun loadEpisodes(showid: Long) {
         interator.execute(GetEpisodesListObserver(), null)

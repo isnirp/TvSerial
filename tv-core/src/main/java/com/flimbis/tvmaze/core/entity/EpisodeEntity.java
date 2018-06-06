@@ -4,7 +4,7 @@ package com.flimbis.tvmaze.core.entity;
  * Created by Fifi on 12/10/2017.
  */
 
-public class Episode {
+public class EpisodeEntity {
     private long id;
     private String name;
     private int season;
@@ -13,7 +13,7 @@ public class Episode {
     private String image;
     private String summary;
 
-    public Episode() {
+    public EpisodeEntity() {
     }
 
     public long getId() {
