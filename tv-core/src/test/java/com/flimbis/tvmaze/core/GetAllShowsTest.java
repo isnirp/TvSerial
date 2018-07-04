@@ -9,7 +9,12 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import io.reactivex.schedulers.Schedulers;
+
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.fail;
+import static org.mockito.Mockito.when;
 
 /**
  * Created by Fifi on 6/18/2018.
@@ -21,11 +26,13 @@ public class GetAllShowsTest {
     ShowsRepository repository;
     @Before
     public void setUp() throws Exception {
-
+        shows = new GetAllShows(repository, Schedulers.single());
     }
 
     @Test
-    public void getAllShows(){
-        fail("Test not yet implemented");
+    public void shouldReturnShows(){
+        //fail("Test not yet implemented");
+        //when()
+        assertNull(shows.buildObservable(1));
     }
 }

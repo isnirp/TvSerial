@@ -13,5 +13,5 @@ public abstract class Mapper<E, T> {
 
     public abstract T toModel(E entity);
 
-    public abstract List<E> toModelList(List<T> entityList);
+    public abstract List<T> toModelList(List<E> entityList);
 }

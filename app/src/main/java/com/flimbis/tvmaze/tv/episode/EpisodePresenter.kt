@@ -6,7 +6,6 @@ import com.flimbis.tvmaze.core.interactors.GetAllEpisodes
 import com.flimbis.tvmaze.core.interactors.UseCaseObserver
 import com.flimbis.tvmaze.core.listeners.EpisodesListener
 import com.flimbis.tvmaze.core.repository.TvMazeRepository
-import com.flimbis.tvmaze.model.EpisodeData
 import com.flimbis.tvmaze.util.convertToEpisodeDataList
 import javax.inject.Inject
 

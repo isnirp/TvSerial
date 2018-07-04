@@ -23,7 +23,7 @@ class ShowsDataMapper : Mapper<ShowEntity, Shows>() {
         return entity
     }
 
-    override fun toEntityList(modelList: MutableList<Shows>?): MutableList<ShowEntity> {
+    override fun toEntityList(modelList: MutableList<Shows>): MutableList<ShowEntity> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
@@ -31,7 +31,7 @@ class ShowsDataMapper : Mapper<ShowEntity, Shows>() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun toModelList(entityList: MutableList<Shows>?): MutableList<ShowEntity> {
+    override fun toModelList(entityList: MutableList<ShowEntity>?): MutableList<Shows> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

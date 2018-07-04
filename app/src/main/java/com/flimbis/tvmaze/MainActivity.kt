@@ -10,7 +10,6 @@ import com.flimbis.tvmaze.adapter.ShowsAdapter
 import com.flimbis.tvmaze.di.component.DaggerShowsComponent
 import com.flimbis.tvmaze.di.component.ShowsComponent
 import com.flimbis.tvmaze.di.module.ShowsModule
-import com.flimbis.tvmaze.model.ShowsData
 import com.flimbis.tvmaze.tv.episode.EpisodeActivity
 import com.flimbis.tvmaze.tv.home.HomePresenter
 import com.flimbis.tvmaze.tv.home.ViewContract

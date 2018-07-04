@@ -17,7 +17,6 @@ import com.flimbis.tvmaze.di.component.EpisodeDetailComponent
 import com.flimbis.tvmaze.di.component.EpisodesComponent
 import com.flimbis.tvmaze.di.module.EpisodeDetailModule
 import com.flimbis.tvmaze.di.module.EpisodesModule
-import com.flimbis.tvmaze.model.EpisodeData
 import com.flimbis.tvmaze.tv.episode.detail.EpisodeDetailActivity
 import kotlinx.android.synthetic.main.activity_episode.*
 import org.jetbrains.anko.find

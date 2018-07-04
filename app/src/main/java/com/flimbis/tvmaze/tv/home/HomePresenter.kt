@@ -8,7 +8,6 @@ import com.flimbis.tvmaze.core.interactors.UseCaseObserver
 import com.flimbis.tvmaze.core.listeners.ShowsListener
 import com.flimbis.tvmaze.core.repository.TvMazeRepository
 import com.flimbis.tvmaze.data.TvMazeDataSource
-import com.flimbis.tvmaze.model.ShowsData
 import com.flimbis.tvmaze.util.convertToShowDataList
 import javax.inject.Inject
 

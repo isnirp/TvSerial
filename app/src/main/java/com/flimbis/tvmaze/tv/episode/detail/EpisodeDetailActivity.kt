@@ -11,7 +11,6 @@ import com.flimbis.tvmaze.TvApplication
 import com.flimbis.tvmaze.di.component.DaggerEpisodeDetailComponent
 import com.flimbis.tvmaze.di.component.EpisodeDetailComponent
 import com.flimbis.tvmaze.di.module.EpisodeDetailModule
-import com.flimbis.tvmaze.model.EpisodeData
 import com.flimbis.tvmaze.tv.shows.TvShowActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_episode_detail.*

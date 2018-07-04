@@ -29,7 +29,7 @@ class EpisodesDataMapper : Mapper<EpisodeEntity, Episodes>() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun toModelList(entityList: MutableList<Episodes>?): MutableList<EpisodeEntity> {
+    override fun toModelList(entityList: MutableList<EpisodeEntity>?): MutableList<Episodes> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

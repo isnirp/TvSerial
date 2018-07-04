@@ -16,8 +16,7 @@ import javax.inject.Inject
 class TvShowPresenter @Inject constructor(val view: ViewContract.View, val interactor: GetShow) : ViewContract.Presenter {
 
     override fun loadShow(showid: Long) {
-        val p: Param = Param(showid)
-        interactor.execute(GetShowDetailsObserver(), p)
+        interactor.execute(GetShowDetailsObserver(), showid)
     }
 
     override fun unbind() {

@@ -22,7 +22,7 @@ interface ApiService {
     * paginated 250 items per page
     * */
     @GET("shows")
-    fun getAllShows(@Query("page") pageNumber: Long): Observable<List<Shows>>
+    fun getAllShows(@Query("page") pageNumber: Int): Observable<MutableList<Shows>>
 
     /*
     * endpoint http://api.tvmaze.com/shows/1

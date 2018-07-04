@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.flimbis.tvmaze.R
-import com.flimbis.tvmaze.model.ShowsData
 import com.flimbis.tvmaze.util.ctx
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.items_shows.view.*

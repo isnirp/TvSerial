@@ -1,7 +1,5 @@
 package com.flimbis.tvmaze.tv.episode
 
-import com.flimbis.tvmaze.model.EpisodeData
-
 /**
  * Created by Fifi on 5/19/2017.
  */

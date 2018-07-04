@@ -1,7 +1,5 @@
 package com.flimbis.tvmaze.tv.shows
 
-import com.flimbis.tvmaze.model.ShowsData
-
 /**
  * Created by Fifi on 5/19/2017.
  */
