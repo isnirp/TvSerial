@@ -1,8 +1,7 @@
 package com.flimbis.tvmaze.di.module
 
-import com.flimbis.tvmaze.core.executor.ThreadExecutor
 import com.flimbis.tvmaze.core.interactors.GetAllShows
-import com.flimbis.tvmaze.core.repository.TvMazeRepository
+import com.flimbis.tvmaze.core.repository.ShowsRepository
 import com.flimbis.tvmaze.di.scope.CustomScope
 import com.flimbis.tvmaze.tv.home.ViewContract
 import dagger.Module
@@ -20,7 +19,7 @@ class ShowsModule(val view: ViewContract.View) {
 
     @Provides
     @CustomScope
-    fun provideGetShowsInteractor(repository: TvMazeRepository, threadExecutor: ThreadExecutor, uiThread: Scheduler): GetAllShows {
-        return GetAllShows(repository, threadExecutor, uiThread)
+    fun provideGetShowsUseCase(repository: ShowsRepository, uiThread: Scheduler): GetAllShows {
+        return GetAllShows(repository, uiThread)
     }
 }

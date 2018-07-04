@@ -23,9 +23,5 @@ class AppModule(val tvApplication: TvApplication) {
 
     @Provides
     @ApplicationScope
-    fun provideThreadExecutor(): ThreadExecutor = ThreadExecutor()
-
-    @Provides
-    @ApplicationScope
     fun provideUiThreadScheduler(): Scheduler = AndroidSchedulers.mainThread()
 }

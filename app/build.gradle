@@ -28,6 +28,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile project(":tv-core")
+    compile project(":tv-data")
 
     androidTestCompile('junit:junit:4.12') {
         exclude module: 'hamcrest-core'

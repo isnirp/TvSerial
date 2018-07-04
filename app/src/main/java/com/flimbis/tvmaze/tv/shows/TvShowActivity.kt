@@ -7,8 +7,6 @@ import android.support.v7.widget.Toolbar
 import com.flimbis.tvmaze.R
 import com.flimbis.tvmaze.TvApplication
 import com.flimbis.tvmaze.di.component.DaggerShowsDetailComponent
-import com.flimbis.tvmaze.di.component.ShowsDetailComponent
-import com.flimbis.tvmaze.di.module.ShowDetailsModule
 import com.flimbis.tvmaze.model.ShowsData
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_tv_show.backdrop

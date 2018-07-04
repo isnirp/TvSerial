@@ -14,7 +14,7 @@ import javax.inject.Inject
 /**
  * Created by Fifi on 5/19/2017.
  */
-class HomePresenter @Inject constructor(val view: ViewContract.View, val interactor: GetAllShows) : ViewContract.Presenter {
+class HomePresenter @Inject constructor(val view: ViewContract.View, val useCase: GetAllShows) : ViewContract.Presenter {
 
     override fun loadShows() {
         interactor.execute(GetShowsListObserver(),null)
