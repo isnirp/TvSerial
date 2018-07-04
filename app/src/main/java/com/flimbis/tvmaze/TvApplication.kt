@@ -2,7 +2,6 @@ package com.flimbis.tvmaze
 
 import android.app.Application
 import com.flimbis.tvmaze.di.component.AppComponent
-import com.flimbis.tvmaze.di.component.DaggerAppComponent
 import com.flimbis.tvmaze.di.module.AppModule
 import com.flimbis.tvmaze.di.module.ApiModule
 

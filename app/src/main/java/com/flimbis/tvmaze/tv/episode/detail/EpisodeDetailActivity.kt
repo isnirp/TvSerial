@@ -7,16 +7,12 @@ import android.support.v7.widget.Toolbar
 import android.view.View
 
 import com.flimbis.tvmaze.R
-import com.flimbis.tvmaze.TvApplication
-import com.flimbis.tvmaze.di.component.DaggerEpisodeDetailComponent
-import com.flimbis.tvmaze.tv.shows.TvShowActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_episode_detail.*
 import org.jetbrains.anko.longToast
 import javax.inject.Inject
 
-class EpisodeDetailActivity : AppCompatActivity(), ViewContract.View {
-    @Inject lateinit var presenter: EpisodeDetailPresenter
+class EpisodeDetailActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,43 +21,6 @@ class EpisodeDetailActivity : AppCompatActivity(), ViewContract.View {
         setSupportActionBar(toolbar_episode_detail as Toolbar?)
         supportActionBar!!.title = "Episode"
 
-        val intnt = intent
-        val showid = intnt.getLongExtra("showid", 1)
-        val season = intnt.getIntExtra("season", 1)
-        val number = intnt.getIntExtra("number", 1)
-
-        val component: EpisodeDetailComponent = DaggerEpisodeDetailComponent.builder()
-                .episodeDetailModule(EpisodeDetailModule(this))
-                .appComponent(TvApplication.getInstance().getAppComponent())
-                .build()
-
-        component.inject(this)
-
-        btn_show_details.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(p0: View?) {
-                presenter.navigateToShowDetail(showid)
-            }
-        })
-        presenter.loadEpisodes(showid, season.toString(), number.toString())
-    }
-
-    override fun showEpisode(episode: EpisodeData) {
-        episodeBanner(episode.image ?: "http://jw-studio.de/wp-content/themes/crowd/images/noimage_2.gif")
-        episodeName(episode.name)
-        episodeSeason(episode.season)
-        episodeNumber(episode.number)
-        episodeSummary(episode.summary)
-        episodeTime(episode.airtime)
-    }
-
-    override fun showShowDetails(showid: Long) {
-        val intnt = Intent(this, TvShowActivity::class.java)
-        intnt.putExtra("showid", showid)
-        startActivity(intnt)
-    }
-
-    override fun showMessage(message: String) {
-        longToast(message)
     }
 
     private fun episodeBanner(img: String) {

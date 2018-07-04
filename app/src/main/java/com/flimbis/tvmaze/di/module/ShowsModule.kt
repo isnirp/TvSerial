@@ -3,7 +3,7 @@ package com.flimbis.tvmaze.di.module
 import com.flimbis.tvmaze.core.interactors.GetAllShows
 import com.flimbis.tvmaze.core.repository.ShowsRepository
 import com.flimbis.tvmaze.di.scope.CustomScope
-import com.flimbis.tvmaze.tv.home.ViewContract
+import com.flimbis.tvmaze.tv.shows.ViewContract
 import dagger.Module
 import dagger.Provides
 import io.reactivex.Scheduler
