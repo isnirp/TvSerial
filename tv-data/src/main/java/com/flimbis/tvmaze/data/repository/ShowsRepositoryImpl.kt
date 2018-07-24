@@ -1,5 +1,6 @@
 package com.flimbis.tvmaze.data.repository
 
+import android.util.Log
 import com.flimbis.tvmaze.core.entity.Mapper
 import com.flimbis.tvmaze.core.entity.ShowEntity
 import com.flimbis.tvmaze.core.repository.ShowsRepository
@@ -14,8 +15,10 @@ import io.reactivex.functions.Function
  */
 class ShowsRepositoryImpl(val remote: ShowsDataSource, val mapper: ShowsDataMapper) : ShowsRepository {
 
-    override fun getAll(id: Long): Observable<MutableList<ShowEntity>> {
-        return remote.getAll(id.toInt())
+    override fun getAll(id: Long): Observable<List<ShowEntity>> {
+        Log.i("TAGSHOWS","GET ALL SHOWS CALLED")
+
+        return remote.getAll(1)
                 .map(Function { showsList-> mapper.toEntityList(showsList) })
     }
 

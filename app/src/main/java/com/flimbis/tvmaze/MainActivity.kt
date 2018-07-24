@@ -7,6 +7,7 @@ import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.flimbis.tvmaze.adapter.ShowsAdapter
+import com.flimbis.tvmaze.di.component.DaggerShowsComponent
 import com.flimbis.tvmaze.di.component.ShowsComponent
 import com.flimbis.tvmaze.di.module.ShowsModule
 import com.flimbis.tvmaze.model.Show
@@ -29,8 +30,6 @@ class MainActivity : AppCompatActivity(), ViewContract.View {
         setSupportActionBar(toolbar)
         supportActionBar!!.title = "TvAmaze"
 
-        shows_grid.layoutManager = GridLayoutManager(this, 3)
-
         //dagger component
         val component: ShowsComponent = DaggerShowsComponent.builder()
                 .showsModule(ShowsModule(this))
@@ -39,13 +38,18 @@ class MainActivity : AppCompatActivity(), ViewContract.View {
 
         component.inject(this)
 
-        //presenter.loadShows()
+        presenter.loadShows(1)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        presenter.unbind()
     }
 
     override fun displayShows(shows: List<Show>) {
-        //val adapter: ShowsAdapter = ShowsAdapter(shows) {show -> presenter.navigateToShowsEpisodes(show)}
-        /*val adapter: ShowsAdapter = ShowsAdapter(shows) {presenter.navigateToShowsEpisodes(it)}//use it where parameter is one
-        shows_grid.adapter = adapter*/
+        val adapter: ShowsAdapter = ShowsAdapter(shows) {presenter.navigateToDetails(it)}//use it where parameter is one
+        shows_grid.layoutManager = GridLayoutManager(this, 3)
+        shows_grid.adapter = adapter
     }
 
     override fun showDetails(show: Show) {

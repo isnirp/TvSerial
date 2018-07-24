@@ -6,13 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.flimbis.tvmaze.R
+import com.flimbis.tvmaze.model.Episode
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.items_episodes.view.*
 
 /**
  * Created by Fifi on 5/19/2017.
  */
-class EpisodeAdapter (val context: Context, val episodes: List<EpisodeData>) : RecyclerView.Adapter<EpisodeAdapter.ViewHolder>() {
+class EpisodeAdapter (val context: Context, val episodes: List<Episode>) : RecyclerView.Adapter<EpisodeAdapter.ViewHolder>() {
 
     private var callback: ClickListener? = null
 
@@ -27,7 +28,7 @@ class EpisodeAdapter (val context: Context, val episodes: List<EpisodeData>) : R
     }
 
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
-        val episode: EpisodeData = episodes[position]
+        val episode: Episode = episodes[position]
         val hold = holder as ViewHolder
         //views
         hold.itemView.txt_episodes_name.text = episode.name
@@ -51,6 +52,6 @@ class EpisodeAdapter (val context: Context, val episodes: List<EpisodeData>) : R
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     interface ClickListener {
-        fun itemClicked(episode: EpisodeData)
+        fun itemClicked(episode: Episode)
     }
 }

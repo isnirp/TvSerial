@@ -8,14 +8,15 @@ import com.flimbis.tvmaze.data.model.Shows
  * Created by Fifi on 6/7/2018.
  */
 class ShowsDataMapper : Mapper<ShowEntity, Shows>() {
+    val scheduleMapper: ScheduleDataMapper = ScheduleDataMapper()
+
     override fun toEntity(model: Shows): ShowEntity {
         val entity: ShowEntity = ShowEntity()
         entity.id = model.id
         entity.name = model.name
         entity.genres = model.genres
         entity.status = model.status
-        entity.schedule.time = model.schedule.time
-        entity.schedule.days = model.schedule.days
+        entity.schedule = scheduleMapper.toEntity(model.schedule)
         entity.image = model.image.medium
         entity.summary = model.summary
         entity.tvMazeInfo = model.url
@@ -23,8 +24,10 @@ class ShowsDataMapper : Mapper<ShowEntity, Shows>() {
         return entity
     }
 
-    override fun toEntityList(modelList: MutableList<Shows>): MutableList<ShowEntity> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun toEntityList(modelList: MutableList<Shows>): List<ShowEntity> {
+        return modelList.mapIndexed { i, showEntity ->
+            toEntity(showEntity)
+        }
     }
 
     override fun toModel(entity: ShowEntity): Shows {
