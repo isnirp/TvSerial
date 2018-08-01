@@ -4,14 +4,11 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.view.View
 import com.flimbis.tvmaze.adapter.ShowsAdapter
 import com.flimbis.tvmaze.di.component.DaggerShowsComponent
 import com.flimbis.tvmaze.di.component.ShowsComponent
 import com.flimbis.tvmaze.di.module.ShowsModule
 import com.flimbis.tvmaze.model.Show
-import com.flimbis.tvmaze.tv.episode.EpisodeActivity
 import com.flimbis.tvmaze.tv.shows.ShowsPresenter
 import com.flimbis.tvmaze.tv.shows.ViewContract
 import kotlinx.android.synthetic.main.activity_main.toolbar
@@ -53,9 +50,7 @@ class MainActivity : AppCompatActivity(), ViewContract.View {
     }
 
     override fun showDetails(show: Show) {
-        /*val intnt = Intent(this, EpisodeActivity::class.java)
-        intnt.putExtra("showid", show.id)
-        startActivity(intnt)*/
+
     }
 
     override fun showEmptyView() {

@@ -8,7 +8,7 @@ import io.reactivex.Single
  * Created by Fifi on 12/21/2017.
  */
 interface ShowsDataSource {
-    fun getAll(pageNumber: Int): Observable<MutableList<Shows>>
+    fun getAll(pageNumber: Int): Observable<List<Shows>>
 
     fun get(id: Long): Single<Shows>
 }

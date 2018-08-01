@@ -24,7 +24,7 @@ class ShowsDataMapper : Mapper<ShowEntity, Shows>() {
         return entity
     }
 
-    override fun toEntityList(modelList: MutableList<Shows>): List<ShowEntity> {
+    override fun toEntityList(modelList: List<Shows>): List<ShowEntity> {
         return modelList.mapIndexed { i, showEntity ->
             toEntity(showEntity)
         }

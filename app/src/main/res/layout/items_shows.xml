@@ -31,7 +31,8 @@
             android:paddingTop="8dp"
             android:text="title"
             android:textColor="#ffffff"
-            android:textSize="13sp" />
+            android:textSize="13sp"
+            android:maxLines="1"/>
 
     </RelativeLayout>
 

@@ -14,19 +14,12 @@ import javax.inject.Inject
 class ShowsPresenter @Inject constructor(val view: ViewContract.View, val useCase: GetAllShows)
     : ViewContract.Presenter {
 
-//    lateinit var mapper: ShowsAppDataMapper
-
-    /*init {
-        val mapper = ShowsAppDataMapper()
-    }
-*/
     override fun loadShows(pageNumber: Int) {
-        Log.i("TAGSHOWS","LOAD SHOWS CALLED")
         useCase.execute(GetShowsListObserver(), pageNumber)
     }
 
     override fun navigateToDetails(show: Show) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        view.showMessage(show.name)
     }
 
     override fun unbind() {
@@ -36,7 +29,6 @@ class ShowsPresenter @Inject constructor(val view: ViewContract.View, val useCas
     inner class GetShowsListObserver : UseCaseObserver<List<ShowEntity>>() {
         override fun onNext(t: List<ShowEntity>) {
             super.onNext(t)
-            Log.i("TAGTAG",t.toString())
             val mapper = ShowsAppDataMapper()
             view.displayShows(mapper.toModelList(t))
         }
