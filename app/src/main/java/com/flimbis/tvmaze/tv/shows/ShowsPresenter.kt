@@ -19,7 +19,7 @@ class ShowsPresenter @Inject constructor(val view: ViewContract.View, val useCas
     }
 
     override fun navigateToDetails(show: Show) {
-        view.showMessage(show.name)
+        view.showDetails(show)
     }
 
     override fun unbind() {
@@ -33,7 +33,7 @@ class ShowsPresenter @Inject constructor(val view: ViewContract.View, val useCas
             view.displayShows(mapper.toModelList(t))
         }
 
-        override fun onError(e: Throwable?) {
+        override fun onError(e: Throwable) {
             super.onError(e)
         }
 

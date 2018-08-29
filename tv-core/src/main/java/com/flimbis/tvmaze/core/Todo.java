@@ -5,10 +5,6 @@ package com.flimbis.tvmaze.core;
  */
 
 public class Todo {
-    //core
-    //interactors and usecases
-    //test
-    //data source
-    //repo impl
+   //shows-details
     //test
 }

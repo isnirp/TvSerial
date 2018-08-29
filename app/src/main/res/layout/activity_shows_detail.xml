@@ -1,9 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.flimbis.tvmaze.tv.shows.detail.ShowsDetailActivity">
+    <include layout="@layout/app_bar" android:id="@+id/toolbar_shows_detail"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar_shows_detail"
 
-</android.support.constraint.ConstraintLayout>
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/img_shows_det"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/colorAccent"
+           />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:id="@+id/txt_det_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="title"
+                />
+            <TextView
+                android:id="@+id/txt_det_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_det_title"
+                android:text="status"/>
+            <TextView
+                android:id="@+id/txt_det_fav"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="favorite"/>
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/txt_det_summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Summary"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

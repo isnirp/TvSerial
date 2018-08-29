@@ -11,14 +11,17 @@ import com.flimbis.tvmaze.di.module.ShowsModule
 import com.flimbis.tvmaze.model.Show
 import com.flimbis.tvmaze.tv.shows.ShowsPresenter
 import com.flimbis.tvmaze.tv.shows.ViewContract
+import com.flimbis.tvmaze.tv.shows.detail.ShowsDetailActivity
 import kotlinx.android.synthetic.main.activity_main.toolbar
 import kotlinx.android.synthetic.main.content_main.*
 import org.jetbrains.anko.find
 import org.jetbrains.anko.longToast
+import java.io.Serializable
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), ViewContract.View {
-    @Inject lateinit var presenter: ShowsPresenter
+    @Inject
+    lateinit var presenter: ShowsPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,12 +31,7 @@ class MainActivity : AppCompatActivity(), ViewContract.View {
         supportActionBar!!.title = "TvAmaze"
 
         //dagger component
-        val component: ShowsComponent = DaggerShowsComponent.builder()
-                .showsModule(ShowsModule(this))
-                .appComponent(TvApplication.getInstance().getAppComponent())
-                .build()
-
-        component.inject(this)
+        showsComponent().inject(this)
 
         presenter.loadShows(1)
     }
@@ -44,19 +42,29 @@ class MainActivity : AppCompatActivity(), ViewContract.View {
     }
 
     override fun displayShows(shows: List<Show>) {
-        val adapter: ShowsAdapter = ShowsAdapter(shows) {presenter.navigateToDetails(it)}//use it where parameter is one
+        val adapter = ShowsAdapter(shows) { presenter.navigateToDetails(it) }//use "it" where parameter is one
         shows_grid.layoutManager = GridLayoutManager(this, 3)
         shows_grid.adapter = adapter
     }
 
     override fun showDetails(show: Show) {
-
+        val intnt = Intent(this, ShowsDetailActivity::class.java)
+        intnt.putExtra("TvShow", show as Serializable)
+        startActivity(intnt)
     }
 
     override fun showEmptyView() {
     }
 
     override fun showMessage(message: String) {
-        longToast(message)
+        longToast(message)//extension function provided by anko
+    }
+
+    fun showsComponent(): ShowsComponent {
+        val component: ShowsComponent = DaggerShowsComponent.builder()
+                .showsModule(ShowsModule(this))
+                .appComponent(TvApplication.getInstance().getAppComponent())
+                .build()
+        return component
     }
 }

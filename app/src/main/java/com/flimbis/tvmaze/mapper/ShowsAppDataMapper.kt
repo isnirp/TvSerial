@@ -32,8 +32,9 @@ class ShowsAppDataMapper : Mapper<ShowEntity, Show>() {
     }
 
     override fun toModelList(entityList: List<ShowEntity>): List<Show> {
-        return entityList.mapIndexed { i, shows ->
-            toModel(shows)
-        }
+        return entityList.map{shows-> toModel(shows)}
+//        return entityList.mapIndexed { i, shows ->
+//            toModel(shows)
+//        }
     }
 }
