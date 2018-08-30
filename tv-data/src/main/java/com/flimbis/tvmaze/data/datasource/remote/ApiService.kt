@@ -34,7 +34,7 @@ interface ApiService {
     * endpoint http://api.tvmaze.com/shows/1/episodes
     * */
     @GET("shows/{id}/episodes")
-    fun getAllEpisodesOfShow(@Path("id") id: Long): Observable<List<Episodes>>
+    fun getAllEpisodesOfShow(@Path("id") id: Int): Observable<List<Episodes>>
 
     /*
     * endpoint http://api.tvmaze.com/shows/1/episodebynumber?season=1&number=1

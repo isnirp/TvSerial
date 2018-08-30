@@ -7,4 +7,6 @@ package com.flimbis.tvmaze.core;
 public class Todo {
    //shows-details
     //test
+    //theme
+    //animations and transitions
 }
