@@ -9,7 +9,7 @@ import com.flimbis.tvmaze.data.model.Episodes
  */
 class EpisodesDataMapper : Mapper<EpisodeEntity, Episodes>() {
     override fun toEntity(model: Episodes): EpisodeEntity {
-        val entity: EpisodeEntity = EpisodeEntity()
+        val entity = EpisodeEntity()
         entity.id = model.id
         entity.name = model.name
         entity.season = model.season
@@ -21,8 +21,8 @@ class EpisodesDataMapper : Mapper<EpisodeEntity, Episodes>() {
         return entity
     }
 
-    override fun toEntityList(modelList: MutableList<Episodes>?): MutableList<EpisodeEntity> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun toEntityList(modelList: List<Episodes>): List<EpisodeEntity> {
+        return modelList.map { episodes -> toEntity(episodes) }
     }
 
     override fun toModel(entity: EpisodeEntity?): Episodes {

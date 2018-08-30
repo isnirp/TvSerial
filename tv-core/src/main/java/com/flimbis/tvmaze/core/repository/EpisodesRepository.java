@@ -12,7 +12,5 @@ import io.reactivex.Single;
  */
 
 public interface EpisodesRepository extends BaseRepository<EpisodeEntity>{
-    Observable<List<EpisodeEntity>> getAllShowsEpisodes(long showId);
-
     Single<EpisodeEntity> get(long id, int season, int episode);
 }
