@@ -14,7 +14,6 @@ import com.flimbis.tvmaze.tv.shows.ViewContract
 import com.flimbis.tvmaze.tv.shows.detail.ShowsDetailActivity
 import kotlinx.android.synthetic.main.activity_main.toolbar
 import kotlinx.android.synthetic.main.content_main.*
-import org.jetbrains.anko.find
 import org.jetbrains.anko.longToast
 import java.io.Serializable
 import javax.inject.Inject

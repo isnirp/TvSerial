@@ -12,7 +12,7 @@ import io.reactivex.Single
  */
 class EpisodesRepositoryImpl(val remote: EpisodesDataSource, val mapper: EpisodesDataMapper) : EpisodesRepository {
     override fun getAll(id: Long): Observable<List<EpisodeEntity>> {
-       return remote.getAll(id.toInt()).map { episodesList -> mapper.toEntityList(episodesList) }
+       return remote.getAll(id).map { episodesList -> mapper.toEntityList(episodesList) }
     }
 
     override fun get(id: Long, season: Int, episode: Int): Single<EpisodeEntity> {

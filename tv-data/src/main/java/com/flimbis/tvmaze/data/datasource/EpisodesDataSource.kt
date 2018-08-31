@@ -7,5 +7,5 @@ import io.reactivex.Observable
  * Created by Fifi on 12/21/2017.
  */
 interface EpisodesDataSource {
-    fun getAll(showId: Int): Observable<List<Episodes>>
+    fun getAll(showId: Long): Observable<List<Episodes>>
 }

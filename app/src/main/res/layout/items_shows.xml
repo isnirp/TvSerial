@@ -25,12 +25,12 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_below="@+id/img_shows"
-            android:background="#ff3300"
+            android:background="@color/colorPrimary"
             android:gravity="center"
             android:paddingBottom="8dp"
             android:paddingTop="8dp"
             android:text="title"
-            android:textColor="#ffffff"
+            android:textColor="#000000"
             android:textSize="13sp"
             android:maxLines="1"/>
 

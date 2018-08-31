@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#DA2D08</color>
-    <color name="colorPrimaryDark">#CA2C0C</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#ffd454</color>
+    <color name="colorPrimaryDark">#ffab40</color>
+    <color name="colorAccent">#ff6d00</color>
     <color name="colorTab">#FFFFFF</color>
     <color name="backColor">#e8e8e8</color>
     <drawable name="screen_background_holo_light">#fff3f3f3</drawable>

@@ -7,7 +7,7 @@ interface ViewContractDetail {
     interface View {
         fun displayShows(shows: Show)
 
-        fun displayEpisodes(episodes: Episode)
+        fun displayEpisodes(episodes: List<Episode>)
 
         fun showMessage(msg: String)
     }
@@ -15,7 +15,7 @@ interface ViewContractDetail {
     interface Presenter {
         fun displayIntent(shows: Show)
 
-        fun loadEpisodes(id: Int)
+        fun loadEpisodes(id: Long)
 
         fun unbind()
     }

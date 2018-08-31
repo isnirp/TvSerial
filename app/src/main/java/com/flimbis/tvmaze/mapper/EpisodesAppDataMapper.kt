@@ -24,7 +24,7 @@ class EpisodesAppDataMapper : Mapper<EpisodeEntity, Episode>() {
         return episode
     }
 
-    override fun toModelList(entityList: MutableList<EpisodeEntity>?): MutableList<Episode> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun toModelList(entityList: List<EpisodeEntity>): List<Episode> {
+        return entityList.map { entity -> toModel(entity) }
     }
 }
