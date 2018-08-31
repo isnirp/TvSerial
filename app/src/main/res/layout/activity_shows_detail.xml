@@ -16,7 +16,7 @@
             android:id="@+id/img_shows_det"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="@color/colorAccent"
+            android:background="?attr/colorAccent"
             android:scaleType="centerCrop"
            />
         <RelativeLayout

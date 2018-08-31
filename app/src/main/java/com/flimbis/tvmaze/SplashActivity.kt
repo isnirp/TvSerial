@@ -10,7 +10,7 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash)
+        /*setContentView(R.layout.activity_splash)
 
         val trd = Thread {
             try {
@@ -23,7 +23,7 @@ class SplashActivity : AppCompatActivity() {
         trd.start()
         trd.join()
 
-        startActivity<MainActivity>()
+        startActivity<MainActivity>()*/
 
     }
 

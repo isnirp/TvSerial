@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#ffd454</color>
-    <color name="colorPrimaryDark">#ffab40</color>
-    <color name="colorAccent">#ff6d00</color>
-    <color name="colorTab">#FFFFFF</color>
-    <color name="backColor">#e8e8e8</color>
-    <drawable name="screen_background_holo_light">#fff3f3f3</drawable>
-    <drawable name="screen_background_holo_dark">#ff000000</drawable>
+    <color name="defaultPrimary">#ffd454</color>
+    <color name="defaultPrimaryDark">#ffab40</color>
+    <color name="defaultAccent">#ff6d00</color>
+    <color name="defaultText">#000</color>
+    <color name="defaultTextSecondary">#ccc</color>
+    <color name="defaultGood">#ff6d00</color>
+    <color name="defaultBad">#ff3300</color>
+    <color name="background_holo_light">#fff3f3f3</color>
+
+    <!--dark theme-->
+    <color name="cinemaPrimary">#ffd454</color>
+    <color name="cinemaPrimaryDark">#ffab40</color>
+    <color name="cinemaAccent">#ff6d00</color>
+    <color name="cinemaText">#ffffff</color>
+    <color name="cinemaTextSecondary">#ccc</color>
+    <color name="cinemaGood">#ffd454</color>
+    <color name="cinemaBad">#ff6d00</color>
     <color name="background_holo_dark">#ff000000</color>
-    <color name="background_holo_light">#fff3f3f3</color>>
+
+
+    <!--<color name="colorTab">#FFFFFF</color>-->
+    <!--<color name="backColor">#e8e8e8</color>-->
+    <!--<drawable name="screen_background_holo_light">#fff3f3f3</drawable>-->
+    <!--<drawable name="screen_background_holo_dark">#ff000000</drawable>-->
+    <!--<color name="background_holo_dark">#ff000000</color>-->
+    <!--<color name="background_holo_light">#fff3f3f3</color>>-->
 </resources>

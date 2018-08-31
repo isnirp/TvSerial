@@ -3,20 +3,49 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">?themePrimary</item>
+        <item name="colorPrimaryDark">?themePrimaryDark</item>
+        <item name="colorAccent">?themeAccent</item>
+        <item name="android:textColorPrimary">?themeTextColor</item>
+        <item name="android:textColorSecondary">?themeTextColorSecondary</item>
     </style>
 
+    <!--default theme-->
+    <style name="AppTheme.Def">
+        <item name="themePrimary">@color/defaultPrimary</item>
+        <item name="themePrimaryDark">@color/defaultPrimaryDark</item>
+        <item name="themeAccent">@color/defaultAccent</item>
+        <item name="themeBackground">@color/background_holo_light</item>
+        <item name="themeTextColor">@color/defaultText</item>
+        <item name="themeTextColorSecondary">@color/defaultTextSecondary</item>
+        <item name="themeStatusGood">@color/defaultGood</item>
+        <item name="themeStatusBad">@color/defaultBad</item>
+    </style>
+
+    <!--cinema theme-->
+    <style name="AppTheme.Cinema">
+        <item name="themePrimary">@color/cinemaPrimary</item>
+        <item name="themePrimaryDark">@color/cinemaPrimaryDark</item>
+        <item name="themeAccent">@color/cinemaAccent</item>
+        <item name="themeBackground">@color/background_holo_light</item>
+        <item name="themeTextColor">@color/cinemaText</item>
+        <item name="themeTextColorSecondary">@color/cinemaTextSecondary</item>
+        <item name="themeStatusGood">@color/cinemaGood</item>
+        <item name="themeStatusBad">@color/cinemaBad</item>
+    </style>
+
+    <!--toolbar-->
     <style name="CustomToolbar" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:textColorPrimary">#ffffff</item>
         <item name="android:textColorSecondary">#ffffff</item>
+        <item name="android:background">#ffffff</item>
 
     </style>
 
     <style name="Toolbar" parent="Theme.AppCompat">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">?themePrimary</item>
+        <item name="colorPrimaryDark">?themePrimaryDark</item>
+        <item name="colorAccent">?themeAccent</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
