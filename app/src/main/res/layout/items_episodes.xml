@@ -7,17 +7,17 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="5dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingTop="5dp">
+        android:paddingBottom="@dimen/content_padding"
+        android:paddingLeft="@dimen/content_padding_lg"
+        android:paddingRight="@dimen/content_padding_lg"
+        android:paddingTop="@dimen/content_padding">
 
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/episodes_image"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginRight="10dp" />
+            android:layout_marginRight="@dimen/content_margin" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -32,17 +32,14 @@
                 android:layout_height="wrap_content"
                 android:maxLines="1"
                 android:text="title"
-                android:textColor="?attr/themeTextColor"
-                android:textSize="16sp" />
+                style="@style/LargeText"/>
 
             <TextView
                 android:id="@+id/txt_episodes_season"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="season"
-                android:textSize="13sp"
-                android:textColor="?attr/themeTextColorSecondary"
-                android:textStyle="italic" />
+                style="@style/RegularText" />
         </LinearLayout>
     </RelativeLayout>
 

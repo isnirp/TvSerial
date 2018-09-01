@@ -4,8 +4,8 @@
     android:id="@+id/card_view"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="16dp"
-    card_view:cardCornerRadius="8dp"
+    android:layout_marginBottom="@dimen/content_margin"
+    card_view:cardCornerRadius="@dimen/view_radius"
     card_view:cardUseCompatPadding="true">
 
     <RelativeLayout
@@ -27,10 +27,7 @@
             android:layout_below="@+id/img_shows"
             android:background="?attr/colorPrimary"
             android:gravity="center"
-            android:paddingBottom="8dp"
-            android:paddingTop="8dp"
-            android:text="title"
-            android:textSize="13sp"
+            style="@style/RegularText"
             android:maxLines="1"/>
 
     </RelativeLayout>

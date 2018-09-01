@@ -1,6 +1,7 @@
 package com.flimbis.tvmaze.tv.shows.detail
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -24,6 +25,9 @@ import javax.inject.Inject
 class ShowsDetailActivity : AppCompatActivity(),
         ViewContractDetail.View {
 
+    val DEF_THEME = "def"
+    val CINEMA_THEME = "cinema"
+
     @Inject
     lateinit var presenter: DetailPresenter
     lateinit var banner: ImageView
@@ -34,6 +38,8 @@ class ShowsDetailActivity : AppCompatActivity(),
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //theme
+        setTheme(getSavedTheme())
         setContentView(R.layout.activity_shows_detail)
 
         val toolbar: android.support.v7.widget.Toolbar = find(R.id.toolbar_shows_detail)
@@ -49,7 +55,7 @@ class ShowsDetailActivity : AppCompatActivity(),
         supportActionBar?.title = show.name
 
         presenter.displayIntent(show)
-        presenter.loadEpisodes(show.id.toLong())
+        presenter.loadEpisodes(show.id)
     }
 
     fun initViews() {
@@ -90,5 +96,24 @@ class ShowsDetailActivity : AppCompatActivity(),
 
     override fun showMessage(msg: String) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    fun saveTheme(value: String){
+        val editor: SharedPreferences.Editor = getPreferences(0).edit()
+        editor.putString("theme", value)
+        editor.commit()
+        recreate()
+    }
+
+    fun getSavedTheme(): Int {
+        val theme: String = getPreferences(0).getString("theme",DEF_THEME)
+        val value: Int
+        when(theme){
+            DEF_THEME-> value = R.style.AppTheme_Def
+            CINEMA_THEME -> value = R.style.AppTheme_Cinema
+            else -> value = R.style.AppTheme_Cinema
+        }
+
+        return value
     }
 }

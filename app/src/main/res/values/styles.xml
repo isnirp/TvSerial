@@ -8,6 +8,8 @@
         <item name="colorAccent">?themeAccent</item>
         <item name="android:textColorPrimary">?themeTextColor</item>
         <item name="android:textColorSecondary">?themeTextColorSecondary</item>
+        <item name="android:windowBackground">?themeBackground</item>
+        <!--<item name="android:colorBackground">?themeBackground</item>-->
     </style>
 
     <!--default theme-->
@@ -36,17 +38,31 @@
 
     <!--toolbar-->
     <style name="CustomToolbar" parent="ThemeOverlay.AppCompat.Light">
-        <item name="android:textColorPrimary">#ffffff</item>
-        <item name="android:textColorSecondary">#ffffff</item>
-        <item name="android:background">#ffffff</item>
+        <item name="android:textColorPrimary">?themeTextColor</item>
+        <item name="android:textColorSecondary">?themeTextColorSecondary</item>
+        <item name="android:background">?themePrimary</item>
 
     </style>
 
-    <style name="Toolbar" parent="Theme.AppCompat">
-        <item name="colorPrimary">?themePrimary</item>
-        <item name="colorPrimaryDark">?themePrimaryDark</item>
-        <item name="colorAccent">?themeAccent</item>
+    <style name="RegularText">
+        <item name="android:textColor">?themeTextColor</item>
+        <item name="android:textSize">@dimen/fnt_size</item>
     </style>
+
+    <style name="RegularText.Dull">
+        <item name="android:textColor">?themeTextColorSecondary</item>
+    </style>
+
+    <style name="LargeText">
+        <item name="android:textColor">?themeTextColor</item>
+        <item name="android:textSize">@dimen/fnt_size_lg</item>
+    </style>
+
+    <!--<style name="Toolbar" parent="Theme.AppCompat">-->
+        <!--<item name="colorPrimary">?themePrimary</item>-->
+        <!--<item name="colorPrimaryDark">?themePrimaryDark</item>-->
+        <!--<item name="colorAccent">?themeAccent</item>-->
+    <!--</style>-->
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
