@@ -11,6 +11,7 @@ import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toolbar
 import com.flimbis.tvmaze.AppPreference
+import com.flimbis.tvmaze.BaseActivity
 
 import com.flimbis.tvmaze.R
 import com.flimbis.tvmaze.TvApplication
@@ -24,7 +25,7 @@ import com.squareup.picasso.Picasso
 import org.jetbrains.anko.find
 import javax.inject.Inject
 
-class ShowsDetailActivity : AppCompatActivity(),
+class ShowsDetailActivity : BaseActivity(),
         ViewContractDetail.View {
 
     @Inject
@@ -38,8 +39,7 @@ class ShowsDetailActivity : AppCompatActivity(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //theme
-        val theme: Int = AppPreference(this).getCustomTheme()
-        setTheme(theme)
+        defaultTheme()
 
         setContentView(R.layout.activity_shows_detail)
 
@@ -59,6 +59,11 @@ class ShowsDetailActivity : AppCompatActivity(),
         presenter.loadEpisodes(show.id)
     }
 
+    override fun onStop() {
+        super.onStop()
+        presenter.unbind()
+    }
+
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             android.R.id.home -> {
@@ -69,7 +74,7 @@ class ShowsDetailActivity : AppCompatActivity(),
         return super.onOptionsItemSelected(item)
     }
 
-    fun initViews() {
+    private fun initViews() {
         banner = find(R.id.img_shows_det)
         title = find(R.id.txt_det_title)
         status = findViewById(R.id.txt_det_status)
@@ -77,10 +82,10 @@ class ShowsDetailActivity : AppCompatActivity(),
         list = findViewById(R.id.lst_det_episodes)
     }
 
-    fun showsDetailComponent(): ShowsDetailComponent {
+    private fun showsDetailComponent(): ShowsDetailComponent {
         val component: ShowsDetailComponent = DaggerShowsDetailComponent.builder()
                 .showsDetailModule(ShowsDetailModule(this))
-                .appComponent(TvApplication.getInstance().getAppComponent())
+                .appComponent(getApplicationComponent())
                 .build()
 
         return component

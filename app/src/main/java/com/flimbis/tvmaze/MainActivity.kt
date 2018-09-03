@@ -15,6 +15,7 @@ import com.flimbis.tvmaze.model.Show
 import com.flimbis.tvmaze.tv.shows.ShowsPresenter
 import com.flimbis.tvmaze.tv.shows.ViewContract
 import com.flimbis.tvmaze.tv.shows.detail.ShowsDetailActivity
+import com.flimbis.tvmaze.util.supportsLollipop
 import kotlinx.android.synthetic.main.activity_main.toolbar
 import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.android.synthetic.main.items_shows.img_shows
@@ -22,15 +23,14 @@ import org.jetbrains.anko.longToast
 import java.io.Serializable
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), ViewContract.View {
+class MainActivity : BaseActivity(), ViewContract.View {
     @Inject
     lateinit var presenter: ShowsPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //theme
-        val theme: Int = AppPreference(this).getCustomTheme()
-        setTheme(theme)
+        defaultTheme()
 
         setContentView(R.layout.activity_main)
 
@@ -58,15 +58,13 @@ class MainActivity : AppCompatActivity(), ViewContract.View {
         val intnt = Intent(this, ShowsDetailActivity::class.java)
         intnt.putExtra("TvShow", show as Serializable)
 
-        // Check if we're running on Android 5.0 or higher
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            // Apply activity transition
             val options = ActivityOptions
                     .makeSceneTransitionAnimation(this, img_shows, "banner")
-            // start the new activity
+
             startActivity(intnt, options.toBundle())
         } else {
-            // Swap without transition
+
             startActivity(intnt)
         }
 
@@ -79,10 +77,10 @@ class MainActivity : AppCompatActivity(), ViewContract.View {
         longToast(message)//extension function provided by anko
     }
 
-    fun showsComponent(): ShowsComponent {
+    private fun showsComponent(): ShowsComponent {
         val component: ShowsComponent = DaggerShowsComponent.builder()
                 .showsModule(ShowsModule(this))
-                .appComponent(TvApplication.getInstance().getAppComponent())
+                .appComponent(getApplicationComponent())
                 .build()
         return component
     }
