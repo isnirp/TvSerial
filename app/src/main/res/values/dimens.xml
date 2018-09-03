@@ -12,4 +12,6 @@
     <dimen name="content_margin_lg">16dp</dimen>
     <dimen name="window_padding">16dp</dimen>
     <dimen name="view_radius">7dp</dimen>
+    <dimen name="content_padding_md">8dp</dimen>
+    <dimen name="divider_height">0.5dp</dimen>
 </resources>

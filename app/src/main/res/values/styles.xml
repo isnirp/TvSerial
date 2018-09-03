@@ -1,15 +1,20 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">?themePrimary</item>
         <item name="colorPrimaryDark">?themePrimaryDark</item>
         <item name="colorAccent">?themeAccent</item>
         <item name="android:textColorPrimary">?themeTextColor</item>
         <item name="android:textColorSecondary">?themeTextColorSecondary</item>
         <item name="android:windowBackground">?themeBackground</item>
+        <!--<item name="android:windowBackground">?themeBackground</item>-->
+        <!--<item name="android:background">@android:color/transparent</item>-->
         <!--<item name="android:colorBackground">?themeBackground</item>-->
+    </style>
+
+    <style name="AppTheme" parent="BaseTheme">
+        <!-- Customize your theme here. -->
     </style>
 
     <!--default theme-->
@@ -29,7 +34,7 @@
         <item name="themePrimary">@color/cinemaPrimary</item>
         <item name="themePrimaryDark">@color/cinemaPrimaryDark</item>
         <item name="themeAccent">@color/cinemaAccent</item>
-        <item name="themeBackground">@color/background_holo_light</item>
+        <item name="themeBackground">@color/background_holo_dark</item>
         <item name="themeTextColor">@color/cinemaText</item>
         <item name="themeTextColorSecondary">@color/cinemaTextSecondary</item>
         <item name="themeStatusGood">@color/cinemaGood</item>

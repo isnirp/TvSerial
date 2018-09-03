@@ -5,10 +5,12 @@ import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toolbar
+import com.flimbis.tvmaze.AppPreference
 
 import com.flimbis.tvmaze.R
 import com.flimbis.tvmaze.TvApplication
@@ -25,9 +27,6 @@ import javax.inject.Inject
 class ShowsDetailActivity : AppCompatActivity(),
         ViewContractDetail.View {
 
-    val DEF_THEME = "def"
-    val CINEMA_THEME = "cinema"
-
     @Inject
     lateinit var presenter: DetailPresenter
     lateinit var banner: ImageView
@@ -39,23 +38,35 @@ class ShowsDetailActivity : AppCompatActivity(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //theme
-        setTheme(getSavedTheme())
+        val theme: Int = AppPreference(this).getCustomTheme()
+        setTheme(theme)
+
         setContentView(R.layout.activity_shows_detail)
 
         val toolbar: android.support.v7.widget.Toolbar = find(R.id.toolbar_shows_detail)
         setSupportActionBar(toolbar)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         initViews()
 
-        showsDetailComponent().inject(this)
-
         val show = intent.extras.get("TvShow") as Show
-
         //toolbar title
         supportActionBar?.title = show.name
+        //dagger component
+        showsDetailComponent().inject(this)
 
         presenter.displayIntent(show)
         presenter.loadEpisodes(show.id)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     fun initViews() {
@@ -64,7 +75,6 @@ class ShowsDetailActivity : AppCompatActivity(),
         status = findViewById(R.id.txt_det_status)
         summary = findViewById(R.id.txt_det_summary)
         list = findViewById(R.id.lst_det_episodes)
-
     }
 
     fun showsDetailComponent(): ShowsDetailComponent {
@@ -84,36 +94,17 @@ class ShowsDetailActivity : AppCompatActivity(),
         title.text = shows.name
         status.text = shows.status
         summary.text = shows.summary
-
     }
 
     override fun displayEpisodes(episodes: List<Episode>) {
-        for(episode in episodes) Log.i("TAG_EP", episode.name)
-
         val adapter = EpisodeAdapter(this, episodes)
         list.adapter = adapter
+
+        for (episode in episodes) Log.i("TAG_EP", episode.name)
     }
 
     override fun showMessage(msg: String) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    fun saveTheme(value: String){
-        val editor: SharedPreferences.Editor = getPreferences(0).edit()
-        editor.putString("theme", value)
-        editor.commit()
-        recreate()
-    }
-
-    fun getSavedTheme(): Int {
-        val theme: String = getPreferences(0).getString("theme",DEF_THEME)
-        val value: Int
-        when(theme){
-            DEF_THEME-> value = R.style.AppTheme_Def
-            CINEMA_THEME -> value = R.style.AppTheme_Cinema
-            else -> value = R.style.AppTheme_Cinema
-        }
-
-        return value
-    }
 }

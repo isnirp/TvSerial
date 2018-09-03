@@ -18,6 +18,8 @@
     <color name="cinemaGood">#ffd454</color>
     <color name="cinemaBad">#ff6d00</color>
     <color name="background_holo_dark">#ff000000</color>
+    <!--common-->
+    <color name="divider">#e8e8e8</color>
 
 
     <!--<color name="colorTab">#FFFFFF</color>-->

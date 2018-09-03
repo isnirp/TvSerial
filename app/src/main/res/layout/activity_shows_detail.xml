@@ -5,54 +5,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.flimbis.tvmaze.tv.shows.detail.ShowsDetailActivity">
-    <include layout="@layout/app_bar" android:id="@+id/toolbar_shows_detail"/>
+
+    <include
+        android:id="@+id/toolbar_shows_detail"
+        layout="@layout/app_bar" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/toolbar_shows_detail"
-
         android:orientation="vertical">
+
         <ImageView
             android:id="@+id/img_shows_det"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:background="?attr/colorAccent"
             android:scaleType="centerCrop"
-           />
+            android:transitionName="banner" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/content_padding_lg"
-            >
+            android:padding="@dimen/content_padding_lg">
+
             <TextView
                 android:id="@+id/txt_det_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/LargeText"
-                />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
             <TextView
                 android:id="@+id/txt_det_status"
+                style="@style/RegularText.Dull"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txt_det_title"
-                style="@style/RegularText.Dull"/>
-            <TextView
-                android:id="@+id/txt_det_fav"
+                android:layout_below="@+id/txt_det_title" />
+
+            <ImageButton
+                android:id="@+id/imgbttn_det_fav"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:text="favorite"/>
+                android:src="@drawable/ic_action_bookmark_dark"/>
         </RelativeLayout>
+
         <TextView
             android:id="@+id/txt_det_summary"
+            style="@style/LargeText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/LargeText"
-            />
+            android:padding="@dimen/content_padding_lg" />
+
         <ListView
             android:id="@+id/lst_det_episodes"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:divider="@color/divider"
+            android:dividerHeight="@dimen/divider_height"
+            android:background="@android:color/transparent"
+            android:cacheColorHint="@android:color/transparent"/>
     </LinearLayout>
 
 </RelativeLayout>

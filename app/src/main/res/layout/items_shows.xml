@@ -10,25 +10,28 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent">
 
         <ImageView
             android:id="@+id/img_shows"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            />
+            android:transitionName="banner" />
 
         <TextView
             android:id="@+id/txt_shows_name"
+            style="@style/RegularText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_below="@+id/img_shows"
             android:background="?attr/colorPrimary"
             android:gravity="center"
-            style="@style/RegularText"
-            android:maxLines="1"/>
+            android:maxLines="1"
+            android:paddingBottom="@dimen/content_padding"
+            android:paddingTop="@dimen/content_padding" />
 
     </RelativeLayout>
 
